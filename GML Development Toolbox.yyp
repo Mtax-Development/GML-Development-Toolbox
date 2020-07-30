@@ -1,5 +1,7 @@
 {
-  "resources": [],
+  "resources": [
+    {"id":{"name":"test_execution_time","path":"scripts/test_execution_time/test_execution_time.yy",},"order":0,},
+  ],
   "Options": [
     {"name":"Linux","path":"options/linux/options_linux.yy",},
     {"name":"macOS","path":"options/mac/options_mac.yy",},
@@ -16,6 +18,7 @@
   "RoomOrder": [],
   "Folders": [
     {"folderPath":"folders/GML Development Toolbox.yy","order":5,"resourceVersion":"1.0","name":"GML Development Toolbox","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/GML Development Toolbox/Optimization.yy","order":1,"resourceVersion":"1.0","name":"Optimization","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":461609314234257646,"resourceVersion":"1.0","name":"audiogroup_default","resourceType":"GMAudioGroup",},
