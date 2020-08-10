@@ -1,0 +1,10 @@
+show_debug_message
+(
+	test_execution_time
+	(
+		function()
+		{
+			
+		}
+	)
+);
