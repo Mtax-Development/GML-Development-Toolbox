@@ -8,7 +8,7 @@
 /// @author					Mtax (github.com/Git-Mtax)
 function test_execution_time()
 {
-	var array_average = function(_array)
+	static __array_average = function(_array)
 	{
 		var _valueNumber = array_length(_array);
 	
@@ -62,7 +62,7 @@ function test_execution_time()
 		_executionTimes[_i][array_length(_executionTimes[_i])] = _timerDifference;
 		
 		//|Save the current average results for the provided function.
-		_averageTimes[_i] = array_average(_executionTimes[_i]);
+		_averageTimes[_i] = __array_average(_executionTimes[_i]);
 		
 		_i++;
 	}
