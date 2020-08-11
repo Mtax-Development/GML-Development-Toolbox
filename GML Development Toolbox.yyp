@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"out","path":"scripts/out/out.yy",},"order":0,},
+    {"id":{"name":"msg","path":"scripts/msg/msg.yy",},"order":1,},
     {"id":{"name":"test_execution_time__output","path":"notes/test_execution_time__output/test_execution_time__output.yy",},"order":0,},
     {"id":{"name":"application_is_runner","path":"scripts/application_is_runner/application_is_runner.yy",},"order":0,},
     {"id":{"name":"test_execution_time","path":"scripts/test_execution_time/test_execution_time.yy",},"order":0,},
