@@ -31,15 +31,6 @@ function test_execution_time()
 		}
 	}
 	
-	//|Initial test run of all provided functions to avoid 
-	// inflation of the results due to initialization time.
-	var _i = 0;
-		
-	repeat (argument_count)
-	{
-		argument[_i++]();
-	}
-	
 	//|Actual run of all provided functions, from which time results are saved
 	// and then average is generated over multiple calls of this entire function.
 	static _executionTimes = [];
@@ -49,10 +40,16 @@ function test_execution_time()
 	
 	repeat (argument_count)
 	{
+		var __function = argument[_i];
+		
+		//|Initial test run of the functions to avoid inflation of the 
+		// results due to initialization time.
+		__function()
+		
 		//|Run the function to get the timer difference.
 		var _timer_before = get_timer();
 		
-		argument[_i]();
+		__function();
 		
 		var _timer_after = get_timer();
 		
