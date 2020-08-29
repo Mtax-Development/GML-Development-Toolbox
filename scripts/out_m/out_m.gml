@@ -1,24 +1,36 @@
-/// @function				out()
+/// @function				out_m()
 /// @argument				{any} text?
-/// @argument				{any} title?
 /// @returns				{string}
 /// @description			This function acts as a handler for the built-in show_debug_message() 
 ///							functio with additional usability.
 ///							The output will provide the name of the object or room calling this
-///							function. It can also have a title, but the function can be used without
-///							it or any provided text to display.
+///							function. It can also take multiple arguments, which will be shown
+///							in the same line with separation between each.
 /// @author					Mtax (github.com/Git-Mtax)
-function out()
-{
-	var _text = ((argument_count > 0) ? string(argument[0]) : "");
-	var _title = ((argument_count > 1) ? (" (" + string(argument[1]) + ")") : "");
-	
+function out_m()
+{	
 	var _callerName = ((id == 0) ? room_get_name(room) : object_get_name(object_index));
 	
 	var _mark_section = ": ";
 	var _mark_output_start = "> ";
 	
-	var _string = (_callerName + _title + _mark_section + _text);
+	var _mark_separator = " | ";
+	
+	var _string = (_callerName + _mark_section);
+	
+	var _i = 0;
+	
+	repeat (argument_count)
+	{
+		_string += string(argument[_i]);
+		
+		++_i;
+		
+		if (_i != argument_count)
+		{
+			_string += _mark_separator;
+		}
+	}
 	
 	show_debug_message(_mark_output_start + _string);
 	

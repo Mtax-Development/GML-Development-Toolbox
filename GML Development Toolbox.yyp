@@ -1,9 +1,13 @@
 {
   "resources": [
     {"id":{"name":"out","path":"scripts/out/out.yy",},"order":0,},
+    {"id":{"name":"msg_m","path":"scripts/msg_m/msg_m.yy",},"order":3,},
     {"id":{"name":"msg","path":"scripts/msg/msg.yy",},"order":1,},
     {"id":{"name":"test_execution_time__output","path":"notes/test_execution_time__output/test_execution_time__output.yy",},"order":0,},
+    {"id":{"name":"out_m","path":"scripts/out_m/out_m.yy",},"order":2,},
     {"id":{"name":"application_is_runner","path":"scripts/application_is_runner/application_is_runner.yy",},"order":0,},
+    {"id":{"name":"out_t","path":"scripts/out_t/out_t.yy",},"order":4,},
+    {"id":{"name":"msg_t","path":"scripts/msg_t/msg_t.yy",},"order":5,},
     {"id":{"name":"test_execution_time","path":"scripts/test_execution_time/test_execution_time.yy",},"order":0,},
   ],
   "Options": [
@@ -36,7 +40,7 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "23.1.1.174",
+    "IDEVersion": "2.3.0.529",
   },
   "resourceVersion": "1.3",
   "name": "GML Development Toolbox",
