@@ -1,13 +1,13 @@
 /// @function				out_t()
-/// @argument				{any} title?
 /// @argument				{any} value?
+/// @argument				{any} title?
 /// @returns				{string}
 /// @description			This function acts as a handler for the built-in show_debug_message() 
-///							functio with additional usability.
+///							function with additional usability.
 ///							The output will provide the name of the object or room calling this
-///							function. It can also take multiple arguments in pairs of a titles
-///							and values, which will be shown in the same line with separation 
-///							between each.
+///							function. It can also take multiple arguments in pairs of values and
+///							titles, which will be shown in the same line with separation between 
+///							each.
 /// @author					Mtax (github.com/Git-Mtax)
 function out_t()
 {	
@@ -25,8 +25,8 @@ function out_t()
 	
 	repeat (_pairCount)
 	{
-		var _title = string(argument[_i++]);
 		var _value = string(argument[_i++]);
+		var _title = string(argument[_i++]);
 		
 		_string += (_title + _mark_section + _value);
 		

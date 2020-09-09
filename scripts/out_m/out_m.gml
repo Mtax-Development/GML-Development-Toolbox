@@ -2,7 +2,7 @@
 /// @argument				{any} text?
 /// @returns				{string}
 /// @description			This function acts as a handler for the built-in show_debug_message() 
-///							functio with additional usability.
+///							function with additional usability.
 ///							The output will provide the name of the object or room calling this
 ///							function. It can also take multiple arguments, which will be shown
 ///							in the same line with separation between each.

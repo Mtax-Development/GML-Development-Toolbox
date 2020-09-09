@@ -3,7 +3,7 @@
 /// @argument				{any} title?
 /// @returns				{string}
 /// @description			This function acts as a handler for the built-in show_debug_message() 
-///							functio with additional usability.
+///							function with additional usability.
 ///							The output will provide the name of the object or room calling this
 ///							function. It can also have a title, but the function can be used without
 ///							it or any provided text to display.
