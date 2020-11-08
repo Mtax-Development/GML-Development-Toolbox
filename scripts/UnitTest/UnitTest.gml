@@ -70,17 +70,17 @@ function UnitTest() constructor
 					{
 						_string += "FAILURE (";
 						
-						var _i = 0;
+						var _j = 0;
 						repeat (_failures_length)
 						{
-							if (_i != 0)
+							if (_j != 0)
 							{
 								_string += ", ";
 							}
 							
-							_string += string(_failures[_i]);
+							_string += string(_failures[_j]);
 							
-							++_i;
+							++_j;
 						}
 						
 						_string += ")";
