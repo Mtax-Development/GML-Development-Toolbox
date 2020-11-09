@@ -30,14 +30,9 @@ function UnitTest() constructor
 			// @description			Create a formatted string listing the saved results of the tests.
 			static getResults = function()
 			{
-				var _string = "";
+				var _string_results = "";
 				
-				if (name != undefined)
-				{
-					_string += (string(name) + " - ");
-				}
-				
-				_string += "Test Results: \n\n";
+				var _failures_exist = false;
 				
 				var _i = 0;
 				repeat (array_length(testStatus))
@@ -55,25 +50,34 @@ function UnitTest() constructor
 						++_j;
 					}
 					
-					var _text_name = "";
+					var _string_testName = "";
 					
 					if (testNames[_i] != undefined)
 					{
-						_text_name = (" (" + string(testNames[_i]) + ")");
+						_string_testName = (" " + string(testNames[_i]));
 					}
 					
-					_string += (string(_i + 1) + _text_name + ": ");
+					_string_results += ("Test #" + string(_i + 1) + ": ");
+					
+					if (string_length(_string_testName) > 0)
+					{
+						_string_results += (_string_testName + ": ");
+					}
 					
 					var _failures_length = array_length(_failures);
 					
+					var _mark_equal = "=";
+					
 					if (_failures_length > 0)
 					{
-						_string += "FAILURE" + ((_failures_length > 1) ? "S" : "") + " (";
+						_failures_exist = true;
+						
+						_string_results += "FAILURE" + ((_failures_length > 1) ? "S" : "") + " (";
 						
 						if (_failures_length == 1)
 						{
 							var _failure = testStatus[_i][(_failures[0] - 1)];
-							_string += (string(_failure.functionReturn) + " ≠ " 
+							_string_results += (string(_failure.functionReturn) + " ≠ " 
 									   + string(_failure.expectedResult));
 						}
 						else
@@ -83,28 +87,35 @@ function UnitTest() constructor
 							{
 								if (_j != 0)
 								{
-									_string += ", ";
+									_string_results += ", ";
 								}
 							
-								_string += string(_failures[_j]);
+								_string_results += string(_failures[_j]);
 							
 								++_j;
 							}
 						}
 						
-						_string += ")";
+						_string_results += ")";
 					}
 					else
 					{
-						_string += "SUCCESS";
+						_string_results += "SUCCESS";
 					}
 					
-					_string += "\n";
+					_string_results += "\n";
 					
 					++_i;
 				}
 				
-				return _string;
+				var _string_title = ((name != undefined) ? string(name) + " - " : "");
+				
+				_string_title += ("Test Results" + " - ");
+				_string_title += ((_failures_exist) ? "FAILURES PRESENT" : "ALL CLEAR");
+				
+				var _string_separation = ":\n\n";
+				
+				return (_string_title + _string_separation + _string_results);
 			}
 			
 		#endregion
