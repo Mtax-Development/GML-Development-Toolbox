@@ -20,7 +20,7 @@ function UnitTest() constructor
 				name = _name;
 				
 				testID = 0;
-				testSuccess = [];
+				testStatus = [];
 				testNames = [];
 			}
 			
@@ -40,14 +40,14 @@ function UnitTest() constructor
 				_string += "Test Results: \n\n";
 				
 				var _i = 0;
-				repeat (array_length(testSuccess))
+				repeat (array_length(testStatus))
 				{
 					var _failures = [];
 					
 					var _j = 0;
-					repeat (array_length(testSuccess[_i]))
+					repeat (array_length(testStatus[_i]))
 					{
-						if (!testSuccess[_i][_j])
+						if (!testStatus[_i][_j].success)
 						{
 							array_push(_failures, (_j + 1));
 						}
@@ -66,21 +66,30 @@ function UnitTest() constructor
 					
 					var _failures_length = array_length(_failures);
 					
-					if (_failures_length)
+					if (_failures_length > 0)
 					{
-						_string += "FAILURE (";
+						_string += "FAILURE" + ((_failures_length > 1) ? "S" : "") + " (";
 						
-						var _j = 0;
-						repeat (_failures_length)
+						if (_failures_length == 1)
 						{
-							if (_j != 0)
+							var _failure = testStatus[_i][(_failures[0] - 1)];
+							_string += (string(_failure.functionReturn) + " ≠ " 
+									   + string(_failure.expectedResult));
+						}
+						else
+						{
+							var _j = 0;
+							repeat (_failures_length)
 							{
-								_string += ", ";
+								if (_j != 0)
+								{
+									_string += ", ";
+								}
+							
+								_string += string(_failures[_j]);
+							
+								++_j;
 							}
-							
-							_string += string(_failures[_j]);
-							
-							++_j;
 						}
 						
 						_string += ")";
@@ -122,9 +131,14 @@ function UnitTest() constructor
 					var _functionReturn = argument[_i];
 					var _expectedResult = argument[_i + 1];
 					
-					testSuccess[testID][_pair] = (_functionReturn == _expectedResult);
+					testStatus[testID][_pair] =
+					{
+						success: (_functionReturn == _expectedResult),
+						functionReturn: _functionReturn,
+						expectedResult: _expectedResult
+					}
 					
-					if (!testSuccess[testID][_pair])
+					if (!testStatus[testID][_pair].success)
 					{
 						failuresExist = true;
 					}
@@ -156,9 +170,14 @@ function UnitTest() constructor
 					var _functionReturn = argument[_i];
 					var _expectedResult = argument[_i + 1];
 					
-					testSuccess[testID][_pair] = (_functionReturn != _expectedResult);
+					testStatus[testID][_pair] =
+					{
+						success: (_functionReturn == _expectedResult),
+						functionReturn: _functionReturn,
+						expectedResult: _expectedResult
+					}
 					
-					if (!testSuccess[testID][_pair])
+					if (!testStatus[testID][_pair].success)
 					{
 						failuresExist = true;
 					}
