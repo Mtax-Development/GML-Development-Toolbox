@@ -34,8 +34,10 @@ function UnitTest() constructor
 				
 				var _failures_exist = false;
 				
+				var _testStatus_number = array_length(testStatus);
+				
 				var _i = 0;
-				repeat (array_length(testStatus))
+				repeat (_testStatus_number)
 				{
 					var _failures = [];
 					
@@ -111,11 +113,21 @@ function UnitTest() constructor
 				var _string_title = ((name != undefined) ? string(name) + " - " : "");
 				
 				_string_title += ("Test Results" + " - ");
-				_string_title += ((_failures_exist) ? "FAILURES PRESENT" : "ALL CLEAR");
 				
-				var _string_separation = ":\n\n";
+				if (_testStatus_number > 0)
+				{
+					_string_title += ((_failures_exist) ? "FAILURES PRESENT" : "ALL CLEAR");
 				
-				return (_string_title + _string_separation + _string_results);
+					var _string_separation = ":\n\n";
+				
+					return (_string_title + _string_separation + _string_results);
+				}
+				else
+				{
+					_string_title += "NO TESTS DONE";
+					
+					return _string_title;
+				}
 			}
 			
 		#endregion
