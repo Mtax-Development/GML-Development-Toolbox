@@ -1,5 +1,5 @@
 /// @function				UnitTest()
-/// @argument				{string} name?
+/// @argument				{any} name?
 ///	@description			Constructs a UnitTest Class, used for testing invidual pieces of code to
 ///							ensure they keep their intended behavior and stability.
 /// @author					Mtax (github.com/Git-Mtax)
@@ -17,7 +17,7 @@ function UnitTest() constructor
 			// @description			Initialize the constructor.
 			static construct = function(_name)
 			{
-				name = _name;
+				name = string(_name);
 				
 				testID = 0;
 				testStatus = [];
@@ -209,6 +209,18 @@ function UnitTest() constructor
 				}
 				
 				++testID;
+			}
+			
+		#endregion
+		#region <Conversion>
+			
+			// @returns				{string}
+			// @description			Create a string representing the constructor.
+			//						Overrides the string() conversion.
+			//						Content will be represented by the name of this Unit Test.
+			static toString = function()
+			{
+				return (instanceof(self) + "(" + string(name) + ")");
 			}
 			
 		#endregion
