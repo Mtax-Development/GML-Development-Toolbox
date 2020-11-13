@@ -40,6 +40,7 @@ function UnitTest() constructor
 				repeat (_testStatus_number)
 				{
 					var _failures = [];
+					var _failure_last = undefined;
 					
 					var _j = 0;
 					repeat (array_length(testStatus[_i]))
@@ -47,6 +48,7 @@ function UnitTest() constructor
 						if (!testStatus[_i][_j].success)
 						{
 							array_push(_failures, (_j + 1));
+							_failure_last = (_j + 1);
 						}
 						
 						++_j;
@@ -68,7 +70,9 @@ function UnitTest() constructor
 					
 					var _failures_length = array_length(_failures);
 					
-					var _mark_equal = "=";
+					var _mark_notEqual = " ≠ ";
+					var _mark_failure_separator_single = ": ";
+					var _mark_failure_separator_multi = ", ";
 					
 					if (_failures_length > 0)
 					{
@@ -79,8 +83,10 @@ function UnitTest() constructor
 						if (_failures_length == 1)
 						{
 							var _failure = testStatus[_i][(_failures[0] - 1)];
-							_string_results += (string(_failure.functionReturn) + " ≠ " 
-									   + string(_failure.expectedResult));
+							_string_results += (string(_failure_last) + 
+												_mark_failure_separator_single + 
+											    string(_failure.functionReturn) + _mark_notEqual + 
+											    string(_failure.expectedResult));
 						}
 						else
 						{
@@ -89,7 +95,7 @@ function UnitTest() constructor
 							{
 								if (_j != 0)
 								{
-									_string_results += ", ";
+									_string_results += _mark_failure_separator_multi;
 								}
 							
 								_string_results += string(_failures[_j]);
