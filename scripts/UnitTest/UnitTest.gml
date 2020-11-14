@@ -61,7 +61,9 @@ function UnitTest() constructor
 						_string_testName = (" " + string(testNames[_i]));
 					}
 					
-					_string_results += ("Test #" + string(_i + 1) + ": ");
+					var _string_testID_zero = (((_i + 1) < 10) ? "0" : "");
+					
+					_string_results += ("Test #" + _string_testID_zero + + string(_i + 1) + ": ");
 					
 					if (string_length(_string_testName) > 0)
 					{
