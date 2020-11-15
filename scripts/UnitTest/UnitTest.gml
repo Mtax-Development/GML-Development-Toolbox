@@ -162,9 +162,20 @@ function UnitTest() constructor
 					var _functionReturn = argument[_i];
 					var _expectedResult = argument[_i + 1];
 					
+					var _success;
+					
+					if (is_array(_functionReturn) and is_array(_expectedResult))
+					{
+						_success = array_equals(_functionReturn, _expectedResult);
+					}
+					else
+					{
+						_success = (_functionReturn == _expectedResult);
+					}
+					
 					testStatus[testID][_pair] =
 					{
-						success: (_functionReturn == _expectedResult),
+						success: _success,
 						functionReturn: _functionReturn,
 						expectedResult: _expectedResult
 					}
@@ -201,9 +212,20 @@ function UnitTest() constructor
 					var _functionReturn = argument[_i];
 					var _expectedResult = argument[_i + 1];
 					
+					var _success;
+					
+					if (is_array(_functionReturn) and is_array(_expectedResult))
+					{
+						_success = array_equals(_functionReturn, _expectedResult);
+					}
+					else
+					{
+						_success = (_functionReturn == _expectedResult);
+					}
+					
 					testStatus[testID][_pair] =
 					{
-						success: (_functionReturn == _expectedResult),
+						success: !_success,
 						functionReturn: _functionReturn,
 						expectedResult: _expectedResult
 					}
