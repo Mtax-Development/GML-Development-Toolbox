@@ -3,6 +3,7 @@
     {"id":{"name":"out","path":"scripts/out/out.yy",},"order":0,},
     {"id":{"name":"msg_m","path":"scripts/msg_m/msg_m.yy",},"order":3,},
     {"id":{"name":"msg","path":"scripts/msg/msg.yy",},"order":1,},
+    {"id":{"name":"array_merge","path":"scripts/array_merge/array_merge.yy",},"order":0,},
     {"id":{"name":"test_execution_time__output","path":"notes/test_execution_time__output/test_execution_time__output.yy",},"order":0,},
     {"id":{"name":"out_m","path":"scripts/out_m/out_m.yy",},"order":2,},
     {"id":{"name":"application_is_runner","path":"scripts/application_is_runner/application_is_runner.yy",},"order":0,},
@@ -37,6 +38,8 @@
     {"folderPath":"folders/GML Development Toolbox/Scripts/Objects.yy","order":3,"resourceVersion":"1.0","name":"Objects","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/GML Development Toolbox/Constructors.yy","order":4,"resourceVersion":"1.0","name":"Constructors","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/GML Development Toolbox/Scripts/Computation.yy","order":4,"resourceVersion":"1.0","name":"Computation","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/GML Development Toolbox/Scripts/Data Structures.yy","order":5,"resourceVersion":"1.0","name":"Data Structures","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/GML Development Toolbox/Scripts/Data Structures/Array.yy","order":1,"resourceVersion":"1.0","name":"Array","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":461609314234257646,"resourceVersion":"1.0","name":"audiogroup_default","resourceType":"GMAudioGroup",},
