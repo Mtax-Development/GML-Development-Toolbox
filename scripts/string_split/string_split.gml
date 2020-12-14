@@ -1,9 +1,9 @@
-// @argument			{string} string
-// @argument			{string} separator
-// @returns				{string[]|string}
-// @description			Create multiple strings divided by the specified separator and return them in 
-//						an array.
-//						Returns the string unmodified is no operation was performed.
+/// @argument			{string} string
+/// @argument			{string} separator
+/// @returns			{string[]|string}
+/// @description		Create multiple strings divided by the specified separator and return them in 
+///						an array.
+///						Returns the string unmodified is no operation was performed.
 function string_split(_string, _separator)
 {
 	var _string_length = string_length(_string);
