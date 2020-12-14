@@ -1,15 +1,15 @@
-/// @function				msg_t()
-/// @argument				{any} value?
-/// @argument				{any} title?
-/// @returns				{string}
-/// @description			This function is a handler for the built-in show_message() function
-///							with additional usability. Upon creation of the message box, its text
-///							will be shown in the output as well to prevent information loss.
-///							The output will provide the name of the object or room calling this
-///							function. It can also take multiple arguments in pairs of values and
-///							titles, which will be shown in the same line with separation between
-///							each.
-/// @author					Mtax (github.com/Git-Mtax)
+/// @function			msg_t()
+/// @argument			{any} value?
+/// @argument			{any} title?
+/// @returns			{string}
+/// @description		This function is a handler for the built-in show_message() function
+///						with additional usability. Upon creation of the message box, its text
+///						will be shown in the output as well to prevent information loss.
+///						The output will provide the name of the object or room calling this
+///						function. It can also take multiple arguments in pairs of values and
+///						titles, which will be shown in the same line with separation between
+///						each.
+/// @author				Mtax (github.com/Git-Mtax)
 function msg_t()
 {
 	var _callerName = ((id == 0) ? room_get_name(room) : object_get_name(object_index));

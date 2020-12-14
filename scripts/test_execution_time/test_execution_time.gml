@@ -1,11 +1,11 @@
-/// @function				test_execution_time()
-/// @argument				{function} function
-/// @returns				{real|real[]}
-/// @description			Test for the average execution time of provided functions and return it 
-///							as a real number or an array of them if multiple functions are tested.
-///							That time is counted in microseconds and is saved in a static variable.
-///							The more times this function is ran, the more accurate results it gathers.
-/// @author					Mtax (github.com/Git-Mtax)
+/// @function			test_execution_time()
+/// @argument			{function} function
+/// @returns			{real|real[]}
+/// @description		Test for the average execution time of provided functions and return it 
+///						as a real number or an array of them if multiple functions are tested.
+///						That time is counted in microseconds and is saved in a static variable.
+///						The more times this function is ran, the more accurate results it gathers.
+/// @author				Mtax (github.com/Git-Mtax)
 function test_execution_time()
 {
 	static __array_average = function(_array)

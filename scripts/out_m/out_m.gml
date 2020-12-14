@@ -1,12 +1,12 @@
-/// @function				out_m()
-/// @argument				{any} text?
-/// @returns				{string}
-/// @description			This function acts as a handler for the built-in show_debug_message() 
-///							function with additional usability.
-///							The output will provide the name of the object or room calling this
-///							function. It can also take multiple arguments, which will be shown
-///							in the same line with separation between each.
-/// @author					Mtax (github.com/Git-Mtax)
+/// @function			out_m()
+/// @argument			{any} text?
+/// @returns			{string}
+/// @description		This function acts as a handler for the built-in show_debug_message() 
+///						function with additional usability.
+///						The output will provide the name of the object or room calling this
+///						function. It can also take multiple arguments, which will be shown
+///						in the same line with separation between each.
+/// @author				Mtax (github.com/Git-Mtax)
 function out_m()
 {	
 	var _callerName = ((id == 0) ? room_get_name(room) : object_get_name(object_index));
