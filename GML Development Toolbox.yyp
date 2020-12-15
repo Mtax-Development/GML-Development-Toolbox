@@ -4,6 +4,7 @@
     {"id":{"name":"msg_m","path":"scripts/msg_m/msg_m.yy",},"order":3,},
     {"id":{"name":"msg","path":"scripts/msg/msg.yy",},"order":1,},
     {"id":{"name":"array_merge","path":"scripts/array_merge/array_merge.yy",},"order":0,},
+    {"id":{"name":"difference","path":"scripts/difference/difference.yy",},"order":1,},
     {"id":{"name":"test_execution_time__output","path":"notes/test_execution_time__output/test_execution_time__output.yy",},"order":0,},
     {"id":{"name":"out_m","path":"scripts/out_m/out_m.yy",},"order":2,},
     {"id":{"name":"application_is_runner","path":"scripts/application_is_runner/application_is_runner.yy",},"order":0,},
