@@ -1,3 +1,4 @@
+/// @function			difference()
 /// @argument			{real} number
 /// @argument			...
 /// @returns			{real}

@@ -1,3 +1,4 @@
+/// @function			string_split()
 /// @argument			{string} string
 /// @argument			{string} separator
 /// @returns			{string[]|string}

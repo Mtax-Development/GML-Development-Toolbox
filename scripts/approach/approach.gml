@@ -1,3 +1,4 @@
+/// @function			approach()
 /// @argument			{real} value
 /// @argument			{real} target
 /// @argument			{real} rate?

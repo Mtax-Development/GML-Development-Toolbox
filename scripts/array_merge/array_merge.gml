@@ -1,3 +1,4 @@
+/// @function			array_merge()
 /// @argument			{any[]} array
 /// @argument			...
 /// @returns			{any[]}
