@@ -164,9 +164,40 @@ function UnitTest() constructor
 					
 					var _success;
 					
-					if (is_array(_functionReturn) and is_array(_expectedResult))
+					if ((is_array(_functionReturn)) and (is_array(_expectedResult)))
 					{
 						_success = array_equals(_functionReturn, _expectedResult);
+					}
+					else if (is_struct(_functionReturn) and (is_struct(_expectedResult)))
+					{
+						var _functionReturn_instanceof = instanceof(_functionReturn);
+						var _expectedResult_instanceof = instanceof(_expectedResult);
+						
+						if (_functionReturn_instanceof == _expectedResult_instanceof)
+						{
+							switch (_functionReturn_instanceof)
+							{
+								case "Vector2":
+									_success = ((_functionReturn.x == _expectedResult.x) 
+												and (_functionReturn.y == _expectedResult.y));
+								break;
+								
+								case "Vector4":
+									_success = ((_functionReturn.x1 == _expectedResult.x1)
+												and (_functionReturn.y1 == _expectedResult.y1)
+												and (_functionReturn.x2 == _expectedResult.x2)
+												and (_functionReturn.y2 == _expectedResult.y2));
+								break;
+								
+								default:
+									_success = (_functionReturn == _expectedResult);
+								break;
+							}
+						}
+						else
+						{
+							_success = false;
+						}
 					}
 					else
 					{
@@ -217,6 +248,37 @@ function UnitTest() constructor
 					if (is_array(_functionReturn) and is_array(_expectedResult))
 					{
 						_success = array_equals(_functionReturn, _expectedResult);
+					}
+					else if (is_struct(_functionReturn) and (is_struct(_expectedResult)))
+					{
+						var _functionReturn_instanceof = instanceof(_functionReturn);
+						var _expectedResult_instanceof = instanceof(_expectedResult);
+						
+						if (_functionReturn_instanceof == _expectedResult_instanceof)
+						{
+							switch (_functionReturn_instanceof)
+							{
+								case "Vector2":
+									_success = ((_functionReturn.x == _expectedResult.x) 
+												and (_functionReturn.y == _expectedResult.y));
+								break;
+								
+								case "Vector4":
+									_success = ((_functionReturn.x1 == _expectedResult.x1)
+												and (_functionReturn.y1 == _expectedResult.y1)
+												and (_functionReturn.x2 == _expectedResult.x2)
+												and (_functionReturn.y2 == _expectedResult.y2));
+								break;
+								
+								default:
+									_success = (_functionReturn == _expectedResult);
+								break;
+							}
+						}
+						else
+						{
+							_success = false;
+						}
 					}
 					else
 					{
