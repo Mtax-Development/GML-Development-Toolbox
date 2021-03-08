@@ -27,6 +27,34 @@ function UnitTest() constructor
 		#endregion
 		#region <Getters>
 			
+			// @returns				{int}
+			// @description			Get the number of failures, counting only one per each test ID.
+			static getFailedTestCount = function()
+			{
+				var _failedTestCount = 0;
+				
+				var _i = 0;
+				repeat (array_length(testStatus))
+				{
+					var _j = 0;
+					repeat (array_length(testStatus[_i]))
+					{
+						if (!testStatus[_i][_j].success)
+						{
+							++_failedTestCount;
+							break;
+						}
+						
+						++_j;
+					}
+					
+					++_i;
+				}
+				
+				return _failedTestCount;
+			}
+			
+			// @returns				{string}
 			// @description			Create a formatted string listing the saved results of the tests.
 			static getResults = function()
 			{
