@@ -1,2 +1,2 @@
 # About
-This repository is a collection of independent functions that aim to assist the development process of GML-based applications.
+This repository functions as a collection of independent scripts that aim to assist the development process of applications created in GameMaker Language, updated for the newest versions of it.
