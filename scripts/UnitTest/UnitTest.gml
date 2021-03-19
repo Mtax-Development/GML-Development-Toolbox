@@ -6,10 +6,20 @@
 function UnitTest() constructor
 {
 	#region [Static Properties]
-		
-		/// @member {bool}			A property set and kept true only if any of the test had failures.
-		static failuresExist = false;
-		
+		#region [Configurable variables]
+			
+			// @type		{function}
+			// @member		A function used for displaying the asserted values.
+			static logAssertion = show_debug_message;
+			
+		#endregion
+		#region [Operational variables]
+			
+			// @type		{bool}
+			// @member		A property set and kept true only if any of the test had failures.
+			static failuresExist = false;
+			
+		#endregion
 	#endregion
 	#region [Methods]
 		#region <Management>
@@ -239,9 +249,23 @@ function UnitTest() constructor
 						expectedResult: _expectedResult
 					}
 					
-					if (!testStatus[testID][_pair].success)
+					var _status = testStatus[testID][_pair];
+					
+					if (!_status.success)
 					{
 						failuresExist = true;
+					}
+					
+					if (logAssertion != undefined)
+					{
+						var _string_assertionSuccess = ((_status.success) ? " = " : " ≠ ");
+						
+						var _string_logAssertion = (testNames[testID] + " [" + string(_pair) + "]" +
+													": {" + string(_status.functionReturn) +
+													_string_assertionSuccess +
+													string(_status.expectedResult) + "}");
+						
+						logAssertion(_string_logAssertion);
 					}
 					
 					_i += 2;
@@ -320,9 +344,23 @@ function UnitTest() constructor
 						expectedResult: _expectedResult
 					}
 					
-					if (!testStatus[testID][_pair].success)
+					var _status = testStatus[testID][_pair];
+					
+					if (!_status.success)
 					{
 						failuresExist = true;
+					}
+					
+					if (logAssertion != undefined)
+					{
+						var _string_assertionSuccess = ((_status.success) ? " = " : " ≠ ");
+						
+						var _string_logAssertion = (testNames[testID] + " [" + string(_pair) + "]" +
+													": {" + string(_status.functionReturn) +
+													_string_assertionSuccess +
+													string(_status.expectedResult) + "}");
+						
+						logAssertion(_string_logAssertion);
 					}
 					
 					_i += 2;
