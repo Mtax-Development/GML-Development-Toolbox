@@ -8,7 +8,7 @@ function UnitTest() constructor
 	#region [Static Properties]
 		#region [Configurable variables]
 			
-			// @type		{function}
+			// @type		{function|undefined}
 			// @member		A function used for displaying the asserted values.
 			static logAssertion = show_debug_message;
 			
@@ -69,9 +69,7 @@ function UnitTest() constructor
 			static getResults = function()
 			{
 				var _string_results = "";
-				
 				var _failures_exist = false;
-				
 				var _testStatus_number = array_length(testStatus);
 				
 				var _i = 0;
@@ -179,16 +177,115 @@ function UnitTest() constructor
 		#endregion
 		#region <Execution>
 			
-			// @argument			{string|undefined} name
-			// @argument			{any} functionReturn
-			// @argument			{any} expectedResult
-			// @argument			... (Repeated arguments: argument[1] and argument[2])
+			// @argument			{string} name
+			// @argument			{any} functionReturn...
+			// @argument			{any} expectedValue...
 			// @description			Check if the value returned by the function is the same as the
 			//						specified expected one.
-			//						A name of this test can be specified in the first argument of this
-			//						function. Then the next arguments will accept any number of the 
-			//						argument pairs for function return and their expected results.
+			//						A name of this test must be specified in the first argument of
+			//						this function, which will be used to in displaying its results.
+			//						Then the next arguments will accept any number of the argument
+			//						pairs for function return and their expected return values.
+			//						Assertion details will be logged used the function set in the
+			//						"logAssertion" variable of this constructor if possible.
 			static assert_equal = function()
+			{
+				testNames[testID] = argument[0];
+				
+				var _i = 1;
+				repeat ((argument_count - 1) div 2)
+				{
+					var _pair = ((_i - 1) div 2);
+					
+					var _functionReturn = argument[_i];
+					var _expectedValue = argument[_i + 1];
+					
+					var _success;
+					
+					if ((is_array(_functionReturn)) and (is_array(_expectedValue)))
+					{
+						_success = array_equals(_functionReturn, _expectedValue);
+					}
+					else if ((is_struct(_functionReturn)) and (is_struct(_expectedValue)))
+					{
+						var _functionReturn_instanceof = instanceof(_functionReturn);
+						var _expectedValue_instanceof = instanceof(_expectedValue);
+						
+						if (_functionReturn_instanceof == _expectedValue_instanceof)
+						{
+							switch (_functionReturn_instanceof)
+							{
+								case "Vector2":
+									_success = ((_functionReturn.x == _expectedValue.x) 
+												and (_functionReturn.y == _expectedValue.y));
+								break;
+								
+								case "Vector4":
+									_success = ((_functionReturn.x1 == _expectedValue.x1)
+												and (_functionReturn.y1 == _expectedValue.y1)
+												and (_functionReturn.x2 == _expectedValue.x2)
+												and (_functionReturn.y2 == _expectedValue.y2));
+								break;
+								
+								default:
+									_success = (_functionReturn == _expectedValue);
+								break;
+							}
+						}
+						else
+						{
+							_success = false;
+						}
+					}
+					else
+					{
+						_success = (_functionReturn == _expectedValue);
+					}
+					
+					testStatus[testID][_pair] =
+					{
+						success: _success,
+						functionReturn: _functionReturn,
+						expectedValue: _expectedValue
+					}
+					
+					var _status = testStatus[testID][_pair];
+					
+					if (!_status.success)
+					{
+						failuresExist = true;
+					}
+					
+					if (logAssertion != undefined)
+					{
+						var _string_assertionSuccess = ((_status.success) ? " = " : " ≠ ");
+						
+						var _string_logAssertion = (testNames[testID] + " [" + string((_pair + 1)) +
+													"]" + ": {" + string(_status.functionReturn) +
+													_string_assertionSuccess +
+													string(_status.expectedValue) + "}");
+						
+						logAssertion(_string_logAssertion);
+					}
+					
+					_i += 2;
+				}
+				
+				++testID;
+			}
+			
+			// @argument			{string} name
+			// @argument			{any} functionReturn...
+			// @argument			{any} expectedValue...
+			// @description			Check if the value returned by the function is the same as the
+			//						specified expected one.
+			//						A name of this test must be specified in the first argument of
+			//						this function, which will be used to in displaying its results.
+			//						Then the next arguments will accept any number of the argument
+			//						pairs for function return and their expected return values.
+			//						Assertion details will be logged used the function set in the
+			//						"logAssertion" variable of this constructor if possible.
+			static assert_notEqual = function()
 			{
 				testNames[testID] = argument[0];
 				
@@ -206,102 +303,7 @@ function UnitTest() constructor
 					{
 						_success = array_equals(_functionReturn, _expectedResult);
 					}
-					else if (is_struct(_functionReturn) and (is_struct(_expectedResult)))
-					{
-						var _functionReturn_instanceof = instanceof(_functionReturn);
-						var _expectedResult_instanceof = instanceof(_expectedResult);
-						
-						if (_functionReturn_instanceof == _expectedResult_instanceof)
-						{
-							switch (_functionReturn_instanceof)
-							{
-								case "Vector2":
-									_success = ((_functionReturn.x == _expectedResult.x) 
-												and (_functionReturn.y == _expectedResult.y));
-								break;
-								
-								case "Vector4":
-									_success = ((_functionReturn.x1 == _expectedResult.x1)
-												and (_functionReturn.y1 == _expectedResult.y1)
-												and (_functionReturn.x2 == _expectedResult.x2)
-												and (_functionReturn.y2 == _expectedResult.y2));
-								break;
-								
-								default:
-									_success = (_functionReturn == _expectedResult);
-								break;
-							}
-						}
-						else
-						{
-							_success = false;
-						}
-					}
-					else
-					{
-						_success = (_functionReturn == _expectedResult);
-					}
-					
-					testStatus[testID][_pair] =
-					{
-						success: _success,
-						functionReturn: _functionReturn,
-						expectedResult: _expectedResult
-					}
-					
-					var _status = testStatus[testID][_pair];
-					
-					if (!_status.success)
-					{
-						failuresExist = true;
-					}
-					
-					if (logAssertion != undefined)
-					{
-						var _string_assertionSuccess = ((_status.success) ? " = " : " ≠ ");
-						
-						var _string_logAssertion = (testNames[testID] + " [" + string(_pair) + "]" +
-													": {" + string(_status.functionReturn) +
-													_string_assertionSuccess +
-													string(_status.expectedResult) + "}");
-						
-						logAssertion(_string_logAssertion);
-					}
-					
-					_i += 2;
-				}
-				
-				++testID;
-			}
-			
-			// @argument			{string|undefined} name
-			// @argument			{any} functionReturn
-			// @argument			{any} expectedResult
-			// @argument			...
-			// @description			Check if the value returned by the function is different from the
-			//						specified expected one.
-			//						A name of this test can be specified in the first argument of this
-			//						function. Then the next arguments will accept any number of the 
-			//						argument pairs for function return and their expected results.
-			static assert_notEqual = function()
-			{
-				testNames[testID] = argument[0];
-				
-				var _i = 1;
-				repeat ((argument_count - 1) div 2)
-				{
-					var _pair = ((_i - 1) div 2);
-					
-					var _functionReturn = argument[_i];
-					var _expectedResult = argument[_i + 1];
-					
-					var _success;
-					
-					if (is_array(_functionReturn) and is_array(_expectedResult))
-					{
-						_success = array_equals(_functionReturn, _expectedResult);
-					}
-					else if (is_struct(_functionReturn) and (is_struct(_expectedResult)))
+					else if ((is_struct(_functionReturn)) and (is_struct(_expectedResult)))
 					{
 						var _functionReturn_instanceof = instanceof(_functionReturn);
 						var _expectedResult_instanceof = instanceof(_expectedResult);
@@ -355,8 +357,8 @@ function UnitTest() constructor
 					{
 						var _string_assertionSuccess = ((_status.success) ? " = " : " ≠ ");
 						
-						var _string_logAssertion = (testNames[testID] + " [" + string(_pair) + "]" +
-													": {" + string(_status.functionReturn) +
+						var _string_logAssertion = (testNames[testID] + " [" + string((_pair + 1)) +
+													"]" + ": {" + string(_status.functionReturn) +
 													_string_assertionSuccess +
 													string(_status.expectedResult) + "}");
 						
