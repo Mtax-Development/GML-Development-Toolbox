@@ -90,16 +90,13 @@ function UnitTest() constructor
 						++_j;
 					}
 					
-					var _string_testName = "";
+					var _string_testName = ((testNames[_i] != undefined) ? " " + string(testNames[_i])
+																		 : "");
 					
-					if (testNames[_i] != undefined)
-					{
-						_string_testName = (" " + string(testNames[_i]));
-					}
+					var _string_testID_primaryZero = (((_i + 1) < 10) ? "0" : "");
 					
-					var _string_testID_zero = (((_i + 1) < 10) ? "0" : "");
-					
-					_string_results += ("Test #" + _string_testID_zero + + string(_i + 1) + ": ");
+					_string_results += ("Test #" + _string_testID_primaryZero + string(_i + 1) +
+										": ");
 					
 					if (string_length(_string_testName) > 0)
 					{
@@ -116,15 +113,44 @@ function UnitTest() constructor
 					{
 						_failures_exist = true;
 						
-						_string_results += "FAILURE" + ((_failures_length > 1) ? "S" : "") + " (";
+						var _failure = testStatus[_i][(_failures[0] - 1)];
+						
+						var _string_failureType;
+						switch (_failure.type)
+						{
+							case "Assert: Executable":
+								_string_failureType = "EXCEPTION";
+							break;
+							
+							default:
+								_string_failureType = "FAILURE";
+							break;
+						}
+						
+						var _string_multipleFailures = ((_failures_length > 1) ? "S" : "");
+						
+						var _string_detail = "";
+						var _string_preDetail = "(";
+						var _string_postDetail = ")";
 						
 						if (_failures_length == 1)
 						{
-							var _failure = testStatus[_i][(_failures[0] - 1)];
-							_string_results += (string(_failure_last) + 
-												_mark_failure_separator_single + 
-											    string(_failure.functionReturn) + _mark_notEqual + 
-											    string(_failure.expectedResult));
+							_string_results += (string(_failure_last) +
+												_mark_failure_separator_single);
+							
+							switch (_failure.type)
+							{
+								case "Assert: Equal":
+								case "Assert: Not equal":
+									_string_detail = (string(_failure.functionReturn) +
+													  _mark_notEqual +
+													  string(_failure.expectedValue));
+								break;
+								
+								case "Assert: Executable":
+									_string_detail = string(_failure.exception.message);
+								break;
+							}
 						}
 						else
 						{
@@ -133,16 +159,17 @@ function UnitTest() constructor
 							{
 								if (_j != 0)
 								{
-									_string_results += _mark_failure_separator_multi;
+									 _string_detail += _mark_failure_separator_multi;
 								}
-							
-								_string_results += string(_failures[_j]);
+								
+								 _string_detail += string(_failures[_j]);
 							
 								++_j;
 							}
 						}
 						
-						_string_results += ")";
+						_string_results += (_string_failureType + _string_multipleFailures + " " +
+											_string_preDetail + _string_detail + _string_postDetail);
 					}
 					else
 					{
@@ -244,6 +271,7 @@ function UnitTest() constructor
 					
 					testStatus[testID][_pair] =
 					{
+						type: "Assert: Equal",
 						success: _success,
 						functionReturn: _functionReturn,
 						expectedValue: _expectedValue
@@ -341,6 +369,7 @@ function UnitTest() constructor
 					
 					testStatus[testID][_pair] =
 					{
+						type: "Assert: Not equal",
 						success: !_success,
 						functionReturn: _functionReturn,
 						expectedResult: _expectedResult
@@ -369,6 +398,77 @@ function UnitTest() constructor
 				}
 				
 				++testID;
+			}
+			
+			// @argument			{string|undefined} name
+			// @argument			{function} executedFunction
+			// @argument			{any[]} functionArgument?
+			// @description			Check if the specified function is executable without throwing any
+			//						errors.
+			static assert_executable = function(_name)
+			{
+				testNames[testID] = argument[0];
+				
+				var _i = 1;
+				repeat (ceil((argument_count - 1) / 2))
+				{
+					var _pair = ((_i - 1) div 2);
+					
+					var __executedFunction = argument[_i];
+					var _functionArgument = ((argument_count > (_i + 1)) ? argument[_i + 1] : []);
+					
+					if (!is_array(_functionArgument))
+					{
+						_functionArgument = ((_functionArgument == undefined) ? []
+																			  : [_functionArgument]);
+					}
+					
+					var _error = undefined;
+					var __execution = ((is_method(__executedFunction))
+										? method_get_index(__executedFunction)
+										: __executedFunction);
+					
+					try
+					{
+						script_execute_ext(__execution, _functionArgument);
+					}
+					catch (_exception)
+					{
+						_error = _exception;
+					}
+					
+					testStatus[testID][_pair] =
+					{
+						type: "Assert: Executable",
+						success: (_error == undefined),
+						executedFunction: __executedFunction,
+						functionArgument: _functionArgument,
+						exception: _error
+					}
+					
+					var _status = testStatus[testID][_pair];
+					
+					if (!_status.success)
+					{
+						failuresExist = true;
+					}
+					
+					if (logAssertion != undefined)
+					{
+						var _string_assertionSuccess = ((_status.success)
+													    ? "Executable" : "Exception: " +
+																	     string(_status.exception));
+						
+						var _string_logAssertion = (testNames[testID] + " [" + string((_pair + 1)) +
+													"]" + ": {" + string(_status.executedFunction) +
+													"(" + string(_status.functionArgument) + ")" +
+													": " + _string_assertionSuccess + "}");
+						
+						logAssertion(_string_logAssertion);
+					}
+					
+					_i += 2;
+				}
 			}
 			
 		#endregion
