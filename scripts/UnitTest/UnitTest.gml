@@ -132,11 +132,12 @@ function UnitTest() constructor
 						var _string_detail = "";
 						var _string_preDetail = "(";
 						var _string_postDetail = ")";
+						var _string_singleFailureNumber = "";
 						
 						if (_failures_length == 1)
 						{
-							_string_results += (string(_failure_last) +
-												_mark_failure_separator_single);
+							_string_singleFailureNumber = (string(_failure_last) +
+														   _mark_failure_separator_single);
 							
 							switch (_failure.type)
 							{
@@ -168,8 +169,9 @@ function UnitTest() constructor
 							}
 						}
 						
-						_string_results += (_string_failureType + _string_multipleFailures + " " +
-											_string_preDetail + _string_detail + _string_postDetail);
+						_string_results += (_string_failureType + _string_multipleFailures + ": " +
+											_string_singleFailureNumber + _string_preDetail +
+											_string_detail + _string_postDetail);
 					}
 					else
 					{
