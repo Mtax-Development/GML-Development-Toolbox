@@ -9,7 +9,7 @@
 ///						function. It can also take multiple arguments in pairs of values and
 ///						titles, which will be shown in the same line with separation between
 ///						each.
-/// @author				Mtax (github.com/Git-Mtax)
+/// @author				Mtax (github.com/Mtax-Development)
 function msg_t()
 {
 	var _callerName = ((id == 0) ? room_get_name(room) : object_get_name(object_index));

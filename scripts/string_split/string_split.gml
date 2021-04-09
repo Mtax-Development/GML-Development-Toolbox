@@ -5,7 +5,7 @@
 /// @description		Create multiple strings divided by the specified separator and return them in 
 ///						an array.
 ///						Returns the string unmodified is no operation was performed.
-/// @author				Mtax (github.com/Git-Mtax)
+/// @author				Mtax (github.com/Mtax-Development)
 function string_split(_string, _separator)
 {
 	var _string_length = string_length(_string);

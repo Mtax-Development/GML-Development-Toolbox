@@ -5,7 +5,7 @@
 ///
 ///						This function is only valid for the Windows target and will return
 ///						{undefined} on any other platform (including UWP).
-/// @author				Mtax (github.com/Git-Mtax)
+/// @author				Mtax (github.com/Mtax-Development)
 function application_is_runner()
 {
 	if (os_type != os_windows)

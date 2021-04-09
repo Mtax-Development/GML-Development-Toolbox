@@ -5,7 +5,7 @@
 ///						as a real number or an array of them if multiple functions are tested.
 ///						That time is counted in microseconds and is saved in a static variable.
 ///						The more times this function is ran, the more accurate results it gathers.
-/// @author				Mtax (github.com/Git-Mtax)
+/// @author				Mtax (github.com/Mtax-Development)
 function test_execution_time()
 {
 	static __array_average = function(_array)

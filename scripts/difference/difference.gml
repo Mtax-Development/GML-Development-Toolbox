@@ -4,7 +4,7 @@
 /// @returns			{real}
 /// @description		Return a difference of any count of numbers, which is an absolute value of all
 ///						numbers substracted from each other.
-/// @author				Mtax (github.com/Git-Mtax)
+/// @author				Mtax (github.com/Mtax-Development)
 function difference()
 {
 	var _value = argument[0];

@@ -3,7 +3,7 @@
 /// @argument			...
 /// @returns			{any[]}
 /// @description		Create a single array holding all values of the specified arrays
-/// @author				Mtax (github.com/Git-Mtax)
+/// @author				Mtax (github.com/Mtax-Development)
 function array_merge()
 {
 	var _length = array_create(argument_count, 0);

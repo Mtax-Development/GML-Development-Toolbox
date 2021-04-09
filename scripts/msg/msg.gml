@@ -8,7 +8,7 @@
 ///						The output will provide the name of the object or room calling this
 ///						function. It can also have a title, but the function can be used without
 ///						it or any provided text to display.
-/// @author				Mtax (github.com/Git-Mtax)
+/// @author				Mtax (github.com/Mtax-Development)
 function msg()
 {
 	var _text = ((argument_count > 0) ? string(argument[0]) : "");

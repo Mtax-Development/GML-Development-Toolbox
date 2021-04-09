@@ -5,7 +5,7 @@
 /// @returns			{real}
 /// @description		Move the value towards its target by increasing or decreasing it by the 
 ///						specified rate.
-/// @author				Mtax (github.com/Git-Mtax)
+/// @author				Mtax (github.com/Mtax-Development)
 function approach(_value, _target, _rate)
 {
 	if (_rate == undefined) {_rate = 1;}

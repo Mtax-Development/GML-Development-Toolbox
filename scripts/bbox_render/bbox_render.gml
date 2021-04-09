@@ -3,7 +3,7 @@
 /// @argument			{color} color?
 /// @argument			{real} alpha?
 /// @description		Draw the rectangular bounding box of the calling instance.
-/// @author				Mtax (github.com/Git-Mtax)
+/// @author				Mtax (github.com/Mtax-Development)
 function bbox_render(_full, _color, _alpha)
 {
 	if (_color == undefined) {_color = c_aqua;}
