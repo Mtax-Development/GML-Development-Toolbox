@@ -1,8 +1,8 @@
 /// @function				UnitTest()
 /// @argument				{any} name?
-///	@description			Constructs a UnitTest Class, used for testing invidual pieces of code to
-///							ensure they keep their intended behavior and stability.
 /// @author					Mtax (github.com/Git-Mtax)
+///	@description			Constructs a UnitTest constructor, used for testing invidual pieces of
+///							code to ensure they keep their intended behavior and stability.
 function UnitTest() constructor
 {
 	#region [Static Properties]
