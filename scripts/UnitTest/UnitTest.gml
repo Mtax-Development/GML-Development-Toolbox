@@ -471,6 +471,8 @@ function UnitTest() constructor
 					
 					_i += 2;
 				}
+				
+				++testID;
 			}
 			
 		#endregion
