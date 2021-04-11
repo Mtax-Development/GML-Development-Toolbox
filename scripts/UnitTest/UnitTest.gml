@@ -71,6 +71,7 @@ function UnitTest() constructor
 				var _string_results = "";
 				var _failures_exist = false;
 				var _testStatus_number = array_length(testStatus);
+				var _longestTestName = 0;
 				
 				var _i = 0;
 				repeat (_testStatus_number)
@@ -90,16 +91,23 @@ function UnitTest() constructor
 						++_j;
 					}
 					
-					var _string_testName = ((testNames[_i] != undefined) ? " " + string(testNames[_i])
-																		 : "");
+					var _string_testName = ((testNames[_i] != undefined)
+											? (" " +string(testNames[_i])) : "");
 					
 					var _string_testID_primaryZero = (((_i + 1) < 10) ? "0" : "");
 					
 					_string_results += ("Test #" + _string_testID_primaryZero + string(_i + 1) +
 										": ");
 					
-					if (string_length(_string_testName) > 0)
+					var _string_testName_length = string_length(_string_testName);
+					
+					if (_string_testName_length > 0)
 					{
+						if (_string_testName_length > _longestTestName)
+						{
+							_longestTestName = _string_testName_length;
+						}
+						
 						_string_results += (_string_testName + ": ");
 					}
 					
@@ -195,9 +203,12 @@ function UnitTest() constructor
 				{
 					_string_title += ((_failures_exist) ? "FAILURES PRESENT" : "ALL CLEAR");
 				
-					var _string_separation = ":\n\n";
+					var _string_separation = ":\n";
+					
+					var _string_widthExtension = string_repeat("-", _longestTestName);
 				
-					return (_string_title + _string_separation + _string_results);
+					return (_string_title + _string_separation + _string_widthExtension + "\n" +
+							_string_results + _string_widthExtension);
 				}
 				else
 				{
