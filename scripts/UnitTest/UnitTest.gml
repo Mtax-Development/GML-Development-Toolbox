@@ -175,7 +175,11 @@ function UnitTest() constructor
 					}
 					else
 					{
-						_string_results += "SUCCESS";
+						switch (testStatus[_i][0].type)
+						{
+							case "Assert: Executable": _string_results += "EXECUTABLE"; break;
+							default: _string_results += "SUCCESS"; break;
+						}
 					}
 					
 					_string_results += "\n";
@@ -457,14 +461,32 @@ function UnitTest() constructor
 					
 					if (logAssertion != undefined)
 					{
-						var _string_assertionSuccess = ((_status.success)
-													    ? "Executable" : "Exception: " +
-																	     string(_status.exception));
+						var _string_assertionSuccess = ((_status.success) ? "Executable" :
+														"Exception: " + string(_status.exception));
+						
+						var _string_functionArguments = "";
+						var _functionArgumentCount = array_length(_status.functionArgument);
+						
+						if (_functionArgumentCount > 0)
+						{	
+							var _i = 0;
+							repeat (_functionArgumentCount)
+							{
+								_string_functionArguments += string(_status.functionArgument[_i]);
+								
+								++_i;
+								
+								if (_i < _functionArgumentCount)
+								{
+									_string_functionArguments += ", ";
+								}
+							}
+						}
 						
 						var _string_logAssertion = (testNames[testID] + " [" + string((_pair + 1)) +
 													"]" + ": {" + string(_status.executedFunction) +
-													"(" + string(_status.functionArgument) + ")" +
-													": " + _string_assertionSuccess + "}");
+													"(" + _string_functionArguments + ")" + ": " +
+													_string_assertionSuccess + "}");
 						
 						logAssertion(_string_logAssertion);
 					}
