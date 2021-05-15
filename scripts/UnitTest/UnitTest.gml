@@ -76,6 +76,8 @@ function UnitTest() constructor
 				var _i = 0;
 				repeat (_testStatus_number)
 				{
+					var _string_test = "";
+					
 					var _failures = [];
 					var _failure_last = undefined;
 					
@@ -96,19 +98,13 @@ function UnitTest() constructor
 					
 					var _string_testID_primaryZero = (((_i + 1) < 10) ? "0" : "");
 					
-					_string_results += ("Test #" + _string_testID_primaryZero + string(_i + 1) +
-										": ");
+					_string_test += ("Test #" + _string_testID_primaryZero + string(_i + 1) + ": ");
 					
 					var _string_testName_length = string_length(_string_testName);
 					
 					if (_string_testName_length > 0)
 					{
-						if (_string_testName_length > _longestTestName)
-						{
-							_longestTestName = _string_testName_length;
-						}
-						
-						_string_results += (_string_testName + ": ");
+						_string_test += (_string_testName + ": ");
 					}
 					
 					var _failures_length = array_length(_failures);
@@ -159,6 +155,13 @@ function UnitTest() constructor
 								case "Assert: Executable":
 									_string_detail = string(_failure.exception.message);
 								break;
+								
+								case "Assert: Untested":
+									_string_singleFailureNumber = "";
+									_string_preDetail = "";
+									_string_postDetail = "";
+									_string_detail = "Untested";
+								break;
 							}
 						}
 						else
@@ -177,20 +180,27 @@ function UnitTest() constructor
 							}
 						}
 						
-						_string_results += (_string_failureType + _string_multipleFailures + ": " +
-											_string_singleFailureNumber + _string_preDetail +
-											_string_detail + _string_postDetail);
+						_string_test += (_string_failureType + _string_multipleFailures + ": " +
+										 _string_singleFailureNumber + _string_preDetail +
+										 _string_detail + _string_postDetail);
 					}
 					else
 					{
 						switch (testStatus[_i][0].type)
 						{
-							case "Assert: Executable": _string_results += "EXECUTABLE"; break;
-							default: _string_results += "SUCCESS"; break;
+							case "Assert: Executable": _string_test += "EXECUTABLE"; break;
+							default: _string_test += "SUCCESS"; break;
 						}
 					}
 					
-					_string_results += "\n";
+					var _string_test_length = string_length(_string_test);
+					
+					if (_string_test_length > _longestTestName)
+					{
+						_longestTestName = _string_test_length;
+					}
+					
+					_string_results += (_string_test + "\n");
 					
 					++_i;
 				}
@@ -203,12 +213,10 @@ function UnitTest() constructor
 				{
 					_string_title += ((_failures_exist) ? "FAILURES PRESENT" : "ALL CLEAR");
 				
-					var _string_separation = ":\n";
-					
-					var _string_widthExtension = string_repeat("-", _longestTestName);
+					var _string_separator = string_repeat("-", _longestTestName);
 				
-					return (_string_title + _string_separation + _string_widthExtension + "\n" +
-							_string_results + _string_widthExtension);
+					return (_string_title + ":\n" + _string_separator + "\n" + _string_results +
+							_string_separator);
 				}
 				else
 				{
@@ -265,10 +273,28 @@ function UnitTest() constructor
 								break;
 								
 								case "Vector4":
-									_success = ((_functionReturn.x1 == _expectedValue.x1)
-												and (_functionReturn.y1 == _expectedValue.y1)
-												and (_functionReturn.x2 == _expectedValue.x2)
-												and (_functionReturn.y2 == _expectedValue.y2));
+									_success = ((_functionReturn.x1 == _expectedValue.x1) and
+												(_functionReturn.y1 == _expectedValue.y1) and
+												(_functionReturn.x2 == _expectedValue.x2) and
+												(_functionReturn.y2 == _expectedValue.y2));
+								break;
+								
+								case "Color2":
+									_success = ((_functionReturn.color1 == _expectedValue.color1) and
+												(_functionReturn.color2 == _expectedValue.color2));
+								break;
+								
+								case "Color3":
+									_success = ((_functionReturn.color1 == _expectedValue.color1) and
+												(_functionReturn.color2 == _expectedValue.color2) and
+												(_functionReturn.color3 == _expectedValue.color3));
+								break;
+								
+								case "Color4":
+									_success = ((_functionReturn.color1 == _expectedValue.color1) and
+												(_functionReturn.color2 == _expectedValue.color2) and
+												(_functionReturn.color3 == _expectedValue.color3) and
+												(_functionReturn.color4 == _expectedValue.color4));
 								break;
 								
 								default:
@@ -369,6 +395,24 @@ function UnitTest() constructor
 												and (_functionReturn.y2 == _expectedResult.y2));
 								break;
 								
+								case "Color2":
+									_success = ((_functionReturn.color1 == _expectedValue.color1) and
+												(_functionReturn.color2 == _expectedValue.color2));
+								break;
+								
+								case "Color3":
+									_success = ((_functionReturn.color1 == _expectedValue.color1) and
+												(_functionReturn.color2 == _expectedValue.color2) and
+												(_functionReturn.color3 == _expectedValue.color3));
+								break;
+								
+								case "Color4":
+									_success = ((_functionReturn.color1 == _expectedValue.color1) and
+												(_functionReturn.color2 == _expectedValue.color2) and
+												(_functionReturn.color3 == _expectedValue.color3) and
+												(_functionReturn.color4 == _expectedValue.color4));
+								break;
+								
 								default:
 									_success = (_functionReturn == _expectedResult);
 								break;
@@ -387,7 +431,7 @@ function UnitTest() constructor
 					testStatus[testID][_pair] =
 					{
 						type: "Assert: Not equal",
-						success: !_success,
+						success: (!_success),
 						functionReturn: _functionReturn,
 						expectedResult: _expectedResult
 					}
@@ -417,14 +461,14 @@ function UnitTest() constructor
 				++testID;
 			}
 			
-			// @argument			{string|undefined} name
+			// @argument			{string} name
 			// @argument			{function} executedFunction
 			// @argument			{any[]} functionArgument?
 			// @description			Check if the specified function is executable without throwing any
 			//						errors.
 			static assert_executable = function(_name)
 			{
-				testNames[testID] = argument[0];
+				testNames[testID] = _name;
 				
 				var _i = 1;
 				repeat (ceil((argument_count - 1) / 2))
@@ -442,8 +486,7 @@ function UnitTest() constructor
 					
 					var _error = undefined;
 					var __execution = ((is_method(__executedFunction))
-										? method_get_index(__executedFunction)
-										: __executedFunction);
+									   ? method_get_index(__executedFunction) : __executedFunction);
 					
 					try
 					{
@@ -508,11 +551,61 @@ function UnitTest() constructor
 				++testID;
 			}
 			
+			// @argument			{string} name
+			// @description			Note a name of a function that cannot be executed to test it.
+			static assert_untestable = function(_name)
+			{
+				testNames[testID] = _name;
+				
+				testStatus[testID][0] =
+				{
+					type: "Assert: Untestable",
+					success: true,
+					executedFunction: undefined,
+					functionArgument: undefined,
+					exception: undefined
+				}
+				
+				if (logAssertion != undefined)
+				{
+					var _string_logAssertion = (testNames[testID] + ": Untestable");
+					
+					logAssertion(_string_logAssertion);
+				}
+				
+				++testID;
+			}
+			
+			// @argument			{string} name
+			// @description			Mark that a test with the specified name is yet to be created.
+			static assert_untested = function(_name)
+			{
+				testNames[testID] = _name;
+				
+				testStatus[testID][0] =
+				{
+					type: "Assert: Untested",
+					success: false,
+					executedFunction: undefined,
+					functionArgument: undefined,
+					exception: undefined
+				}
+				
+				if (logAssertion != undefined)
+				{
+					var _string_logAssertion = (testNames[testID] + ": Untested!");
+					
+					logAssertion(_string_logAssertion);
+				}
+				
+				++testID;
+			}
+			
 		#endregion
 		#region <Conversion>
 			
 			// @returns				{string}
-			// @description			Create a string representing the constructor.
+			// @description			Create a string representing this constructor.
 			//						Overrides the string() conversion.
 			//						Content will be represented by the name of this Unit Test.
 			static toString = function()
