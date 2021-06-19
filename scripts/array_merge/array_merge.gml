@@ -1,9 +1,8 @@
-/// @function			array_merge()
-/// @argument			{any[]} array
-/// @argument			...
-/// @returns			{any[]}
-/// @description		Create a single array holding all values of the specified arrays
-/// @author				Mtax (github.com/Mtax-Development)
+/// @function				array_merge()
+/// @argument				{any[]} array...
+/// @returns				{any[]}
+/// @description			Create a single array holding all values of the specified arrays
+/// @author					Mtax (github.com/Mtax-Development)
 function array_merge()
 {
 	var _length = array_create(argument_count, 0);
@@ -21,20 +20,20 @@ function array_merge()
 	var _array = array_create(_totalLength, undefined);
 	
 	var _position = 0;
-	var _i = 0;
+	var _i = [0, 0];
 	repeat (argument_count)
 	{
-		var _j = 0;
+		_i[1] = 0;
 		repeat (_length[_i])
 		{
-			var _argument = argument[_i];
-			_array[_position] = _argument[_j];
+			var _argument = argument[_i[0]];
+			_array[_position] = _argument[_i[1]];
 			
 			++_position;
-			++_j;
+			++_i[1];
 		}
 		
-		++_i;
+		++_i[0];
 	}
 	
 	return _array;

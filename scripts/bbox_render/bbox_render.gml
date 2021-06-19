@@ -1,10 +1,9 @@
-/// @function			bbox_render()
-/// @argument			{bool} full?
-/// @argument			{color} color?
-/// @argument			{real} alpha?
-/// @description		Draw the rectangular bounding box of the calling instance.
-/// @author				Mtax (github.com/Mtax-Development)
-function bbox_render(_full, _color, _alpha)
+/// @function				bbox_render()
+/// @argument				{bool} full?
+/// @argument				{color} color?
+/// @argument				{real} alpha?
+/// @description			Draw the rectangular bounding box of the calling instance.
+/// @author					Mtax (github.com/Mtax-Development)
 function bbox_render(_full = false, _color = c_aqua, _alpha)
 {
 	var _alpha_outline, _alpha_full;
