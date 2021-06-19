@@ -1,27 +1,56 @@
-/// @function			msg()
-/// @argument			{any} text?
-/// @argument			{any} title?
-/// @returns			{string}
-/// @description		This function is a handler for the built-in show_message() function
-///						with additional usability. Upon creation of the message box, its text
-///						will be shown in the output as well to prevent information loss.
-///						The output will provide the name of the object or room calling this
-///						function. It can also have a title, but the function can be used without
-///						it or any provided text to display.
-/// @author				Mtax (github.com/Mtax-Development)
+/// @function				msg()
+/// @argument				{any:string} value...
+/// @returns				{string}
+/// @description			Write the specified values in a string to the standard console output and
+///							display it in the message box of the export target.
+///							The string will be formatted to contain the information about its call.
+///							The specified values will be stringified and separated by a comma, unless
+///							a value was already a string ending with a colon and a space.
+/// @author					Mtax (github.com/Mtax-Development)
 function msg()
 {
-	var _text = ((argument_count > 0) ? string(argument[0]) : "");
-	var _title = ((argument_count > 1) ? (" (" + string(argument[1]) + ")") : "");
+	var _callerName;
 	
-	var _callerName = ((id == 0) ? room_get_name(room) : object_get_name(object_index));
+	if (is_struct(self))
+	{
+		_callerName = instanceof(self);
+	}
+	else
+	{
+		_callerName = ((id == 0) ? room_get_name(room) : object_get_name(object_index));
+	}
 	
+	var _mark_start = ">> ";
 	var _mark_section = ": ";
-	var _mark_output_start = ">> ";
+	var _mark_separator = ", ";
+	var _mark_timeSeparator = " - ";
+	var _mark_section_length = string_length(_mark_section);
 	
-	var _string = (_callerName + _title + _mark_section + _text);
+	var _string_time = date_time_string(date_current_datetime());
 	
-	show_debug_message(_mark_output_start + _string);
+	var _string = (_callerName + _mark_section);
+	
+	var _i = 0;
+	repeat (argument_count)
+	{
+		var _value = string(argument[_i]);
+		
+		_string += _value;
+		
+		++_i;
+		
+		if (_i != argument_count)
+		{
+			if (!((is_string(_value)) and (string_length(_value) > _mark_section_length)
+				  and (string_copy(_value, (string_length(_value) - _mark_section_length + 1),
+				  _mark_section_length) == _mark_section)))
+			{
+				_string += _mark_separator;
+			}
+		}
+	}
+	
+	show_debug_message(_mark_start + _string_time + _mark_timeSeparator + _string);
 	show_message(_string);
 	
 	return _string;
