@@ -5,10 +5,8 @@
 /// @description		Draw the rectangular bounding box of the calling instance.
 /// @author				Mtax (github.com/Mtax-Development)
 function bbox_render(_full, _color, _alpha)
+function bbox_render(_full = false, _color = c_aqua, _alpha)
 {
-	if (_color == undefined) {_color = c_aqua;}
-	if (_full = undefined) {_full = false;}
-	
 	var _alpha_outline, _alpha_full;
 	
 	if (_alpha == undefined)

@@ -7,9 +7,8 @@
 ///						specified rate.
 /// @author				Mtax (github.com/Mtax-Development)
 function approach(_value, _target, _rate)
+function approach(_value, _target, _rate = 1)
 {
-	if (_rate == undefined) {_rate = 1;}
-	
 	if (_value < _target)
 	{
 		_value = clamp((_value + _rate), _value, _target);
