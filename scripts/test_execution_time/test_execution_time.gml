@@ -10,20 +10,21 @@ function test_execution_time()
 {
 	static __array_average = function(_array)
 	{
-		var _valueNumber = array_length(_array);
-	
-		if (_valueNumber > 0)
+		var _arrayLength = array_length(_array);
+		
+		if (_arrayLength > 0)
 		{
 			var _sum = 0;
-		
+			
 			var _i = 0;
-		
-			repeat (_valueNumber)
+			repeat (_arrayLength)
 			{
-				_sum += _array[_i++];
-			}
+				_sum += _array[_i];
 		
-			return (_sum / _valueNumber);
+				++_i;
+			}
+			
+			return (_sum / _arrayLength);
 		}
 		else
 		{
