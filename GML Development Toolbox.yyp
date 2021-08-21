@@ -6,6 +6,7 @@
     {"id":{"name":"msg","path":"scripts/msg/msg.yy",},"order":0,},
     {"id":{"name":"application_is_runner","path":"scripts/application_is_runner/application_is_runner.yy",},"order":0,},
     {"id":{"name":"UnitTest","path":"scripts/UnitTest/UnitTest.yy",},"order":0,},
+    {"id":{"name":"json_to_struct","path":"scripts/json_to_struct/json_to_struct.yy",},"order":0,},
     {"id":{"name":"string_split","path":"scripts/string_split/string_split.yy",},"order":0,},
     {"id":{"name":"array_average","path":"scripts/array_average/array_average.yy",},"order":1,},
     {"id":{"name":"approach","path":"scripts/approach/approach.yy",},"order":2,},
@@ -39,6 +40,7 @@
     {"folderPath":"folders/GML Development Toolbox/Scripts/Computation.yy","order":4,"resourceVersion":"1.0","name":"Computation","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/GML Development Toolbox/Scripts/Data Structures.yy","order":5,"resourceVersion":"1.0","name":"Data Structures","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/GML Development Toolbox/Scripts/Data Structures/Array.yy","order":1,"resourceVersion":"1.0","name":"Array","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/GML Development Toolbox/Scripts/Files.yy","order":6,"resourceVersion":"1.0","name":"Files","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
@@ -48,7 +50,7 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "23.1.1.300",
+    "IDEVersion": "2.3.3.574",
   },
   "resourceVersion": "1.4",
   "name": "GML Development Toolbox",
