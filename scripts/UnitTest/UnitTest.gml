@@ -28,7 +28,6 @@ function UnitTest() constructor
 			static construct = function(_name)
 			{
 				name = string(_name);
-				
 				testID = 0;
 				testStatus = [];
 				testNames = [];
@@ -42,23 +41,22 @@ function UnitTest() constructor
 			static getFailedTestCount = function()
 			{
 				var _failedTestCount = 0;
-				
-				var _i = 0;
+				var _i = [0, 0];
 				repeat (array_length(testStatus))
 				{
-					var _j = 0;
-					repeat (array_length(testStatus[_i]))
+					_i[1] = 0;
+					repeat (array_length(testStatus[_i[0]]))
 					{
-						if (!testStatus[_i][_j].success)
+						if (!testStatus[_i[0]][_i[1]].success)
 						{
 							++_failedTestCount;
 							break;
 						}
 						
-						++_j;
+						++_i[1];
 					}
 					
-					++_i;
+					++_i[0];
 				}
 				
 				return _failedTestCount;
@@ -72,34 +70,28 @@ function UnitTest() constructor
 				var _failures_exist = false;
 				var _testStatus_number = array_length(testStatus);
 				var _longestTestName = 0;
-				
-				var _i = 0;
+				var _i = [0, 0];
 				repeat (_testStatus_number)
 				{
 					var _string_test = "";
-					
 					var _failures = [];
 					var _failure_last = undefined;
-					
-					var _j = 0;
-					repeat (array_length(testStatus[_i]))
+					_i[1] = 0;
+					repeat (array_length(testStatus[_i[0]]))
 					{
-						if (!testStatus[_i][_j].success)
+						if (!testStatus[_i[0]][_i[1]].success)
 						{
-							array_push(_failures, (_j + 1));
-							_failure_last = (_j + 1);
+							array_push(_failures, (_i[1] + 1));
+							_failure_last = (_i[1] + 1);
 						}
 						
-						++_j;
+						++_i[1];
 					}
 					
-					var _string_testName = ((testNames[_i] != undefined)
-											? (" " +string(testNames[_i])) : "");
-					
-					var _string_testID_primaryZero = (((_i + 1) < 10) ? "0" : "");
-					
-					_string_test += ("Test #" + _string_testID_primaryZero + string(_i + 1) + ": ");
-					
+					var _string_testName = ((testNames[_i[0]] != undefined)
+											? (" " + string(testNames[_i[0]])) : "");
+					var _string_testID_primaryZero = (((_i[0] + 1) < 10) ? "0" : "");
+					_string_test += ("Test #" + _string_testID_primaryZero + string(_i[0] + 1) + ": ");
 					var _string_testName_length = string_length(_string_testName);
 					
 					if (_string_testName_length > 0)
@@ -108,7 +100,6 @@ function UnitTest() constructor
 					}
 					
 					var _failures_length = array_length(_failures);
-					
 					var _mark_notEqual = " ≠ ";
 					var _mark_failure_separator_single = ": ";
 					var _mark_failure_separator_multi = ", ";
@@ -116,9 +107,7 @@ function UnitTest() constructor
 					if (_failures_length > 0)
 					{
 						_failures_exist = true;
-						
-						var _failure = testStatus[_i][(_failures[0] - 1)];
-						
+						var _failure = testStatus[_i[0]][(_failures[0] - 1)];
 						var _string_failureType;
 						switch (_failure.type)
 						{
@@ -132,7 +121,6 @@ function UnitTest() constructor
 						}
 						
 						var _string_multipleFailures = ((_failures_length > 1) ? "S" : "");
-						
 						var _string_detail = "";
 						var _string_preDetail = "(";
 						var _string_postDetail = ")";
@@ -166,17 +154,17 @@ function UnitTest() constructor
 						}
 						else
 						{
-							var _j = 0;
+							_i[1] = 0;
 							repeat (_failures_length)
 							{
-								if (_j != 0)
+								if (_i[1] != 0)
 								{
 									 _string_detail += _mark_failure_separator_multi;
 								}
 								
-								 _string_detail += string(_failures[_j]);
+								 _string_detail += string(_failures[_i[1]]);
 							
-								++_j;
+								++_i[1];
 							}
 						}
 						
@@ -186,7 +174,7 @@ function UnitTest() constructor
 					}
 					else
 					{
-						switch (testStatus[_i][0].type)
+						switch (testStatus[_i[0]][0].type)
 						{
 							case "Assert: Executable": _string_test += "EXECUTABLE"; break;
 							default: _string_test += "SUCCESS"; break;
@@ -202,7 +190,7 @@ function UnitTest() constructor
 					
 					_string_results += (_string_test + "\n");
 					
-					++_i;
+					++_i[0];
 				}
 				
 				var _string_title = ((name != undefined) ? string(name) + " - " : "");
@@ -212,7 +200,6 @@ function UnitTest() constructor
 				if (_testStatus_number > 0)
 				{
 					_string_title += ((_failures_exist) ? "FAILURES PRESENT" : "ALL CLEAR");
-				
 					var _string_separator = string_repeat("-", _longestTestName);
 				
 					return (_string_title + ":\n" + _string_separator + "\n" + _string_results +
@@ -244,14 +231,12 @@ function UnitTest() constructor
 			{
 				testNames[testID] = argument[0];
 				
-				var _i = 1;
+				var _i = [1, 0];
 				repeat ((argument_count - 1) div 2)
 				{
-					var _pair = ((_i - 1) div 2);
-					
-					var _functionReturn = argument[_i];
-					var _expectedValue = argument[_i + 1];
-					
+					var _pair = ((_i[0] - 1) div 2);
+					var _functionReturn = argument[_i[0]];
+					var _expectedValue = argument[(_i[0] + 1)];
 					var _success;
 					
 					if ((is_array(_functionReturn)) and (is_array(_expectedValue)))
@@ -265,41 +250,38 @@ function UnitTest() constructor
 						
 						if (_functionReturn_instanceof == _expectedValue_instanceof)
 						{
-							switch (_functionReturn_instanceof)
+							var _functionReturn_property = variable_struct_get_names(_functionReturn);
+							var _expectedValue_property = variable_struct_get_names(_expectedValue);
+							var _expectedPropertyCount = array_length(_expectedValue_property);
+							
+							if (array_length(_functionReturn_property) == _expectedPropertyCount)
 							{
-								case "Vector2":
-									_success = ((_functionReturn.x == _expectedValue.x) 
-												and (_functionReturn.y == _expectedValue.y));
-								break;
-								
-								case "Vector4":
-									_success = ((_functionReturn.x1 == _expectedValue.x1) and
-												(_functionReturn.y1 == _expectedValue.y1) and
-												(_functionReturn.x2 == _expectedValue.x2) and
-												(_functionReturn.y2 == _expectedValue.y2));
-								break;
-								
-								case "Color2":
-									_success = ((_functionReturn.color1 == _expectedValue.color1) and
-												(_functionReturn.color2 == _expectedValue.color2));
-								break;
-								
-								case "Color3":
-									_success = ((_functionReturn.color1 == _expectedValue.color1) and
-												(_functionReturn.color2 == _expectedValue.color2) and
-												(_functionReturn.color3 == _expectedValue.color3));
-								break;
-								
-								case "Color4":
-									_success = ((_functionReturn.color1 == _expectedValue.color1) and
-												(_functionReturn.color2 == _expectedValue.color2) and
-												(_functionReturn.color3 == _expectedValue.color3) and
-												(_functionReturn.color4 == _expectedValue.color4));
-								break;
-								
-								default:
-									_success = (_functionReturn == _expectedValue);
-								break;
+								_success = true;
+								_i[1] = 0;
+								repeat (_expectedPropertyCount)
+								{
+									var _property = _expectedValue_property[_i[1]];
+									
+									if (string_copy(_property, 1, 8) == "argument")
+									{
+										continue;
+									}
+									
+									if ((_functionReturn_property[_i[1]] != _property)
+									or  (!variable_struct_exists(_functionReturn, _property))
+									or  (_functionReturn[$ _property] != _expectedValue[$ _property]))
+									{
+										_success = false;
+										
+										break;
+									}
+									
+									++_i[1];
+								}
+							}
+							else
+							{
+								_success = false;
 							}
 						}
 						else
@@ -330,7 +312,6 @@ function UnitTest() constructor
 					if (logAssertion != undefined)
 					{
 						var _string_assertionSuccess = ((_status.success) ? " = " : " ≠ ");
-						
 						var _string_logAssertion = (testNames[testID] + " [" + string((_pair + 1)) +
 													"]" + ": {" + string(_status.functionReturn) +
 													_string_assertionSuccess +
@@ -339,7 +320,7 @@ function UnitTest() constructor
 						logAssertion(_string_logAssertion);
 					}
 					
-					_i += 2;
+					_i[0] += 2;
 				}
 				
 				++testID;
@@ -360,62 +341,57 @@ function UnitTest() constructor
 			{
 				testNames[testID] = argument[0];
 				
-				var _i = 1;
+				var _i = [1, 0];
 				repeat ((argument_count - 1) div 2)
 				{
-					var _pair = ((_i - 1) div 2);
-					
-					var _functionReturn = argument[_i];
-					var _expectedResult = argument[_i + 1];
-					
+					var _pair = ((_i[0] - 1) div 2);
+					var _functionReturn = argument[_i[0]];
+					var _expectedValue = argument[(_i[0] + 1)];
 					var _success;
 					
-					if ((is_array(_functionReturn)) and (is_array(_expectedResult)))
+					if ((is_array(_functionReturn)) and (is_array(_expectedValue)))
 					{
-						_success = array_equals(_functionReturn, _expectedResult);
+						_success = array_equals(_functionReturn, _expectedValue);
 					}
-					else if ((is_struct(_functionReturn)) and (is_struct(_expectedResult)))
+					else if ((is_struct(_functionReturn)) and (is_struct(_expectedValue)))
 					{
 						var _functionReturn_instanceof = instanceof(_functionReturn);
-						var _expectedResult_instanceof = instanceof(_expectedResult);
+						var _expectedValue_instanceof = instanceof(_expectedValue);
 						
-						if (_functionReturn_instanceof == _expectedResult_instanceof)
+						if (_functionReturn_instanceof == _expectedValue_instanceof)
 						{
-							switch (_functionReturn_instanceof)
+							var _functionReturn_property = variable_struct_get_names(_functionReturn);
+							var _expectedValue_property = variable_struct_get_names(_expectedValue);
+							var _expectedPropertyCount = array_length(_expectedValue_property);
+							
+							if (array_length(_functionReturn_property) == _expectedPropertyCount)
 							{
-								case "Vector2":
-									_success = ((_functionReturn.x == _expectedResult.x) 
-												and (_functionReturn.y == _expectedResult.y));
-								break;
-								
-								case "Vector4":
-									_success = ((_functionReturn.x1 == _expectedResult.x1)
-												and (_functionReturn.y1 == _expectedResult.y1)
-												and (_functionReturn.x2 == _expectedResult.x2)
-												and (_functionReturn.y2 == _expectedResult.y2));
-								break;
-								
-								case "Color2":
-									_success = ((_functionReturn.color1 == _expectedValue.color1) and
-												(_functionReturn.color2 == _expectedValue.color2));
-								break;
-								
-								case "Color3":
-									_success = ((_functionReturn.color1 == _expectedValue.color1) and
-												(_functionReturn.color2 == _expectedValue.color2) and
-												(_functionReturn.color3 == _expectedValue.color3));
-								break;
-								
-								case "Color4":
-									_success = ((_functionReturn.color1 == _expectedValue.color1) and
-												(_functionReturn.color2 == _expectedValue.color2) and
-												(_functionReturn.color3 == _expectedValue.color3) and
-												(_functionReturn.color4 == _expectedValue.color4));
-								break;
-								
-								default:
-									_success = (_functionReturn == _expectedResult);
-								break;
+								_success = true;
+								_i[1] = 0;
+								repeat (_expectedPropertyCount)
+								{
+									var _property = _expectedValue_property[_i[1]];
+									
+									if (string_copy(_property, 1, 8) == "argument")
+									{
+										continue;
+									}
+									
+									if ((_functionReturn_property[_i[1]] != _property)
+									or  (!variable_struct_exists(_functionReturn, _property))
+									or  (_functionReturn[$ _property] != _expectedValue[$ _property]))
+									{
+										_success = false;
+										
+										break;
+									}
+									
+									++_i[1];
+								}
+							}
+							else
+							{
+								_success = false;
 							}
 						}
 						else
@@ -425,7 +401,7 @@ function UnitTest() constructor
 					}
 					else
 					{
-						_success = (_functionReturn == _expectedResult);
+						_success = (_functionReturn == _expectedValue);
 					}
 					
 					testStatus[testID][_pair] =
@@ -446,7 +422,6 @@ function UnitTest() constructor
 					if (logAssertion != undefined)
 					{
 						var _string_assertionSuccess = ((_status.success) ? " = " : " ≠ ");
-						
 						var _string_logAssertion = (testNames[testID] + " [" + string((_pair + 1)) +
 													"]" + ": {" + string(_status.functionReturn) +
 													_string_assertionSuccess +
@@ -455,7 +430,7 @@ function UnitTest() constructor
 						logAssertion(_string_logAssertion);
 					}
 					
-					_i += 2;
+					_i[0] += 2;
 				}
 				
 				++testID;
@@ -474,7 +449,6 @@ function UnitTest() constructor
 				repeat (ceil((argument_count - 1) / 2))
 				{
 					var _pair = ((_i - 1) div 2);
-					
 					var __executedFunction = argument[_i];
 					var _functionArgument = ((argument_count > (_i + 1)) ? argument[_i + 1] : []);
 					
@@ -517,7 +491,6 @@ function UnitTest() constructor
 					{
 						var _string_assertionSuccess = ((_status.success) ? "Executable" :
 														"Exception: " + string(_status.exception));
-						
 						var _string_functionArguments = "";
 						var _functionArgumentCount = array_length(_status.functionArgument);
 						
@@ -556,7 +529,6 @@ function UnitTest() constructor
 			static assert_untestable = function(_name)
 			{
 				testNames[testID] = _name;
-				
 				testStatus[testID][0] =
 				{
 					type: "Assert: Untestable",
@@ -581,7 +553,6 @@ function UnitTest() constructor
 			static assert_untested = function(_name)
 			{
 				testNames[testID] = _name;
-				
 				testStatus[testID][0] =
 				{
 					type: "Assert: Untested",
