@@ -262,18 +262,17 @@ function UnitTest() constructor
 								{
 									var _property = _expectedValue_property[_i[1]];
 									
-									if (string_copy(_property, 1, 8) == "argument")
+									if (string_copy(_property, 1, 8) != "argument")
 									{
-										continue;
-									}
-									
-									if ((_functionReturn_property[_i[1]] != _property)
-									or  (!variable_struct_exists(_functionReturn, _property))
-									or  (_functionReturn[$ _property] != _expectedValue[$ _property]))
-									{
-										_success = false;
-										
-										break;
+										if ((_functionReturn_property[_i[1]] != _property)
+										or  (!variable_struct_exists(_functionReturn, _property))
+										or  (_functionReturn[$ _property] !=
+											 _expectedValue[$ _property]))
+										{
+											_success = false;
+											
+											break;
+										}
 									}
 									
 									++_i[1];
@@ -374,16 +373,15 @@ function UnitTest() constructor
 									
 									if (string_copy(_property, 1, 8) == "argument")
 									{
-										continue;
-									}
-									
-									if ((_functionReturn_property[_i[1]] != _property)
-									or  (!variable_struct_exists(_functionReturn, _property))
-									or  (_functionReturn[$ _property] != _expectedValue[$ _property]))
-									{
-										_success = false;
-										
-										break;
+										if ((_functionReturn_property[_i[1]] != _property)
+										or  (!variable_struct_exists(_functionReturn, _property))
+										or  (_functionReturn[$ _property] !=
+											 _expectedValue[$ _property]))
+										{
+											_success = false;
+											
+											break;
+										}
 									}
 									
 									++_i[1];
@@ -409,7 +407,7 @@ function UnitTest() constructor
 						type: "Assert: Not equal",
 						success: (!_success),
 						functionReturn: _functionReturn,
-						expectedResult: _expectedResult
+						expectedValue: _expectedValue
 					}
 					
 					var _status = testStatus[testID][_pair];
@@ -425,7 +423,7 @@ function UnitTest() constructor
 						var _string_logAssertion = (testNames[testID] + " [" + string((_pair + 1)) +
 													"]" + ": {" + string(_status.functionReturn) +
 													_string_assertionSuccess +
-													string(_status.expectedResult) + "}");
+													string(_status.expectedValue) + "}");
 						
 						logAssertion(_string_logAssertion);
 					}
