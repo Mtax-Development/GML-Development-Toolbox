@@ -1,34 +1,24 @@
-/// @function				out()
+//  @function				msg()
 /// @argument				{any:string} value...
 /// @returns				{string}
-/// @description			Write the specified values in a string to the standard console output.
+/// @description			Write the specified values in a string to the standard console output and
+///							display it in a message box handled by the export target.
 ///							The string will be formatted to contain the information about its call.
-///							The specified values will be stringified and separated by a comma, unless
-///							a value was already a string ending with a colon and a space.
-/// @author					Mtax (github.com/Mtax-Development)
+///							Specified values will be stringified and separated by a comma, except for
+///							string values ending with a colon and space.
+//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function out()
 {
-	var _callerName;
-	
-	if (is_struct(self))
-	{
-		_callerName = instanceof(self);
-	}
-	else
-	{
-		_callerName = ((id == 0) ? room_get_name(room) : object_get_name(object_index));
-	}
-	
+	var _callerName = ((is_struct(self)) ? instanceof(self)
+										 : ((id == 0) ? room_get_name(room)
+													  : object_get_name(object_index)));
 	var _mark_start = "> ";
 	var _mark_section = ": ";
 	var _mark_separator = ", ";
 	var _mark_timeSeparator = " - ";
 	var _mark_section_length = string_length(_mark_section);
-	
 	var _string_time = date_time_string(date_current_datetime());
-	
 	var _string = (_string_time + _mark_timeSeparator + _callerName + _mark_section);
-	
 	var _i = 0;
 	repeat (argument_count)
 	{

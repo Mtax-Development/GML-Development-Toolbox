@@ -1,30 +1,26 @@
-/// @function				array_average()
-/// @argument				{real[]} array
+//  @function				array_average()
+/// @argument				array {real[]}
 /// @returns				{real|undefined}
-/// @description			Return the average number of all numbers of the array by summing them and
-///							then dividing by their count.
-///							Returns {undefined} if the array is empty.
-/// @author					Mtax (github.com/Mtax-Development)
+/// @description			Return the mean number of numeric values in the specified array. If the
+///							array contains no numbers, the result will be {undefined}.
+//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function array_average(_array)
 {
-	var _arrayLength = array_length(_array);
-	
-	if (_arrayLength > 0)
+	var _numericValueCount = 0;
+	var _sum = 0;
+	var _i = 0;
+	repeat (array_length(_array))
 	{
-		var _sum = 0;
-	
-		var _i = 0;
-		repeat (_arrayLength)
-		{
-			_sum += _array[_i];
+		var _value = _array[_i];
 		
-			++_i;
+		if (is_numeric(_value))
+		{
+			_sum += _value;
+			++_numericValueCount;
 		}
 		
-		return (_sum / _arrayLength);
+		++_i;
 	}
-	else
-	{
-		return undefined;
-	}
+	
+	return ((_numericValueCount > 0) ? (_sum / _numericValueCount) : undefined);
 }

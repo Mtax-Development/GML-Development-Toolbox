@@ -1,12 +1,11 @@
 {
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "UnitTest",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Constructors",
-    "path": "folders/GML Development Toolbox/Constructors.yy",
+    "name": "Constructor",
+    "path": "folders/GML Development Toolbox/Constructor.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "UnitTest",
-  "tags": [],
-  "resourceType": "GMScript",
 }

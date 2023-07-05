@@ -1,22 +1,22 @@
-/// @function				UnitTest()
-/// @argument				{any} name?
-///	@description			Constructs a UnitTest constructor, used for testing invidual pieces of
-///							code to ensure they keep their intended behavior and stability.
-/// @author					Mtax (github.com/Mtax-Development)
+//  @function				UnitTest()
+/// @argument				name? {any:string}
+///	@description			Constructs a testing environment used with invidual chunks of code to
+///							automate assertion of their intended behavior and stability.
+//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function UnitTest() constructor
 {
 	#region [Static Properties]
 		#region [Configurable variables]
 			
-			// @type		{function|undefined}
-			// @member		A function used for displaying the asserted values.
+			// @type			{function|undefined}
+			// @description		Function used for displaying the asserted values.
 			static logAssertion = show_debug_message;
 			
 		#endregion
 		#region [Operational variables]
 			
-			// @type		{bool}
-			// @member		A property set and kept true only if any of the test had failures.
+			// @type			{bool}
+			// @description		Value set and kept true only if any of the test had failures.
 			static failuresExist = false;
 			
 		#endregion
@@ -216,17 +216,13 @@ function UnitTest() constructor
 		#endregion
 		#region <Execution>
 			
-			// @argument			{string} name
-			// @argument			{any} functionReturn...
-			// @argument			{any} expectedValue...
-			// @description			Check if the value returned by the function is the same as the
-			//						specified expected one.
-			//						A name of this test must be specified in the first argument of
-			//						this function, which will be used to in displaying its results.
-			//						Then the next arguments will accept any number of the argument
-			//						pairs for function return and their expected return values.
-			//						Assertion details will be logged used the function set in the
-			//						"logAssertion" variable of this constructor if possible.
+			/// @argument			name {string}
+			/// @argument			functionReturn... {any}
+			/// @argument			expectedValue... {any}
+			/// @description		Add to this constructor information with the specified test name
+			///						about pairs of specified values returned by a function matching
+			///						their expected results and use it with the logging function.
+			///						The test is considered successful if all values match their result.
 			static assert_equal = function()
 			{
 				testNames[testID] = argument[0];
@@ -325,17 +321,13 @@ function UnitTest() constructor
 				++testID;
 			}
 			
-			// @argument			{string} name
-			// @argument			{any} functionReturn...
-			// @argument			{any} expectedValue...
-			// @description			Check if the value returned by the function is the same as the
-			//						specified expected one.
-			//						A name of this test must be specified in the first argument of
-			//						this function, which will be used to in displaying its results.
-			//						Then the next arguments will accept any number of the argument
-			//						pairs for function return and their expected return values.
-			//						Assertion details will be logged used the function set in the
-			//						"logAssertion" variable of this constructor if possible.
+			/// @argument			{string} name
+			/// @argument			{any} functionReturn...
+			/// @argument			{any} expectedValue...
+			/// @description		Add to this constructor information with the specified test name
+			///						about pairs of specified values returned by a function matching
+			///						their expected results and use it with the logging function.
+			///						The test is considered successful if no value matches its result.
 			static assert_notEqual = function()
 			{
 				testNames[testID] = argument[0];
@@ -434,11 +426,13 @@ function UnitTest() constructor
 				++testID;
 			}
 			
-			// @argument			{string} name
-			// @argument			{function} executedFunction
-			// @argument			{any[]} functionArgument?
-			// @description			Check if the specified function is executable without throwing any
-			//						errors.
+			/// @argument			name {string}
+			/// @argument			executedFunction... {function}
+			/// @argument			functionArgument?... {any[]}
+			/// @description		Add to this constructor information with the specified test name
+			///						about specified functions executed with their arguments and use it
+			///						with the logging function.
+			///						The test is considered successful if no errors are thrown.
 			static assert_executable = function(_name)
 			{
 				testNames[testID] = _name;
@@ -522,8 +516,10 @@ function UnitTest() constructor
 				++testID;
 			}
 			
-			// @argument			{string} name
-			// @description			Note a name of a function that cannot be executed to test it.
+			/// @argument			name {string}
+			/// @description		Add to this constructor information with the specified test name
+			///						to note that it cannot be executed to test it.
+			///						This test is never considered unsuccessful.
 			static assert_untestable = function(_name)
 			{
 				testNames[testID] = _name;
@@ -546,8 +542,10 @@ function UnitTest() constructor
 				++testID;
 			}
 			
-			// @argument			{string} name
-			// @description			Mark that a test with the specified name is yet to be created.
+			/// @argument			name {string}
+			/// @description		Add to this constructor information with the specified test name
+			///						to note that it has not been created yet.
+			///						This test is always considered unsuccessful.
 			static assert_untested = function(_name)
 			{
 				testNames[testID] = _name;
@@ -573,10 +571,10 @@ function UnitTest() constructor
 		#endregion
 		#region <Conversion>
 			
-			// @returns				{string}
-			// @description			Create a string representing this constructor.
-			//						Overrides the string() conversion.
-			//						Content will be represented by the name of this Unit Test.
+			/// @returns			{string}
+			/// @description		Create a string representing this constructor.
+			///						Overrides the string() conversion.
+			///						Content will be represented by the name of this Unit Test.
 			static toString = function()
 			{
 				return (instanceof(self) + "(" + string(name) + ")");
