@@ -9,6 +9,7 @@
     {"id":{"name":"msg","path":"scripts/msg/msg.yy",},"order":0,},
     {"id":{"name":"application_is_runner","path":"scripts/application_is_runner/application_is_runner.yy",},"order":0,},
     {"id":{"name":"UnitTest","path":"scripts/UnitTest/UnitTest.yy",},"order":0,},
+    {"id":{"name":"string_to_file","path":"scripts/string_to_file/string_to_file.yy",},"order":2,},
     {"id":{"name":"json_to_struct","path":"scripts/json_to_struct/json_to_struct.yy",},"order":0,},
     {"id":{"name":"array_average","path":"scripts/array_average/array_average.yy",},"order":1,},
     {"id":{"name":"approach","path":"scripts/approach/approach.yy",},"order":2,},
