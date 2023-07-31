@@ -1,6 +1,6 @@
 //  @function				UnitTest()
 /// @argument				name? {any:string}
-///	@description			Constructs a testing environment used with invidual chunks of code to
+/// @description			Constructs a testing environment used with invidual chunks of code to
 ///							automate assertion of their intended behavior and stability.
 //  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function UnitTest() constructor
