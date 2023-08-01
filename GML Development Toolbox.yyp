@@ -11,6 +11,7 @@
     {"id":{"name":"UnitTest","path":"scripts/UnitTest/UnitTest.yy",},"order":0,},
     {"id":{"name":"string_to_file","path":"scripts/string_to_file/string_to_file.yy",},"order":2,},
     {"id":{"name":"json_to_struct","path":"scripts/json_to_struct/json_to_struct.yy",},"order":0,},
+    {"id":{"name":"is_ipv4_address","path":"scripts/is_ipv4_address/is_ipv4_address.yy",},"order":0,},
     {"id":{"name":"array_average","path":"scripts/array_average/array_average.yy",},"order":1,},
     {"id":{"name":"approach","path":"scripts/approach/approach.yy",},"order":2,},
     {"id":{"name":"out","path":"scripts/out/out.yy",},"order":1,},
@@ -44,6 +45,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Optimization","folderPath":"folders/GML Development Toolbox/Script/Optimization.yy","order":0,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Output","folderPath":"folders/GML Development Toolbox/Script/Output.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Snippet","folderPath":"folders/GML Development Toolbox/Snippet.yy","order":3,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Network","folderPath":"folders/GML Development Toolbox/Script/Network.yy","order":8,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
