@@ -4,7 +4,7 @@
 /// @argument				rate? {real}
 /// @returns				{real}
 /// @description			Return the specified value after moving it towards its target value by the
-///							specified rate without exceeding it.
+///							specified rate without passing through it.
 //  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function approach(_value, _target, _rate = 1)
 {
