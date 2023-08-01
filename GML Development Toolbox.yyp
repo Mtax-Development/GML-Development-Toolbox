@@ -7,6 +7,7 @@
     {"id":{"name":"array","path":"scripts/array/array.yy",},"order":0,},
     {"id":{"name":"measure_execution_time__output","path":"notes/measure_execution_time__output/measure_execution_time__output.yy",},"order":0,},
     {"id":{"name":"file_to_string","path":"scripts/file_to_string/file_to_string.yy",},"order":1,},
+    {"id":{"name":"struct_merge","path":"scripts/struct_merge/struct_merge.yy",},"order":1,},
     {"id":{"name":"msg","path":"scripts/msg/msg.yy",},"order":0,},
     {"id":{"name":"application_is_runner","path":"scripts/application_is_runner/application_is_runner.yy",},"order":0,},
     {"id":{"name":"UnitTest","path":"scripts/UnitTest/UnitTest.yy",},"order":0,},
