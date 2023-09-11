@@ -1,9 +1,9 @@
 //  @function				struct_reach()
 /// @argument				struct {struct}
 /// @argument				name {string|string[]}
-/// @returns				{any}
-/// @description			Return the nested value at the end of the specified name chain in the
-///							specified struct.
+/// @returns				{any|undefined}
+/// @description			Return the value at the end of the specified name chain of nested structs
+///							in the specified struct or {undefined} if it does not contain such chain.
 //  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function struct_reach(_struct, _name)
 {
@@ -12,7 +12,14 @@ function struct_reach(_struct, _name)
 	var _i = 0;
 	repeat (array_length(_name_chain))
 	{
-		_value = variable_struct_get(_value, _name_chain[_i]);
+		if (variable_struct_exists(_value, _name_chain[_i]))
+		{
+			_value = variable_struct_get(_value, _name_chain[_i]);
+		}
+		else
+		{
+			return undefined;
+		}
 		
 		++_i;
 	}
