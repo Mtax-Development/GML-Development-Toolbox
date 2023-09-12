@@ -12,7 +12,7 @@ function struct_reach(_struct, _name)
 	var _i = 0;
 	repeat (array_length(_name_chain))
 	{
-		if (variable_struct_exists(_value, _name_chain[_i]))
+		if ((is_struct(_value)) and (variable_struct_exists(_value, _name_chain[_i])))
 		{
 			_value = variable_struct_get(_value, _name_chain[_i]);
 		}
