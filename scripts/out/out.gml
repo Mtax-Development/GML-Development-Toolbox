@@ -1,8 +1,7 @@
-//  @function				msg()
+//  @function				out()
 /// @argument				{any:string} value...
 /// @returns				{string}
-/// @description			Write the specified values in a string to the standard console output and
-///							display it in a message box handled by the export target.
+/// @description			Write the specified values in a string to the standard console output.
 ///							The string will be formatted to contain the information about its call.
 ///							Specified values will be stringified and separated by a comma, except for
 ///							string values ending with a colon and space.
