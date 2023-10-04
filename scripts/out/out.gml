@@ -22,19 +22,15 @@ function out()
 	repeat (argument_count)
 	{
 		var _value = string(argument[_i]);
-		
 		_string += _value;
 		
 		++_i;
 		
-		if (_i != argument_count)
+		if ((_i != argument_count) and (!((string_length(_value) > _mark_section_length)
+		and (string_copy(_value, (string_length(_value) - _mark_section_length + 1),
+						 _mark_section_length) == _mark_section))))
 		{
-			if (!((is_string(_value)) and (string_length(_value) > _mark_section_length)
-				  and (string_copy(_value, (string_length(_value) - _mark_section_length + 1),
-				  _mark_section_length) == _mark_section)))
-			{
-				_string += _mark_separator;
-			}
+			_string += _mark_separator;
 		}
 	}
 	
