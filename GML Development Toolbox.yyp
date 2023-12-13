@@ -11,6 +11,7 @@
     {"id":{"name":"callback_execute","path":"scripts/callback_execute/callback_execute.yy",},"order":0,},
     {"id":{"name":"msg","path":"scripts/msg/msg.yy",},"order":0,},
     {"id":{"name":"application_is_runner","path":"scripts/application_is_runner/application_is_runner.yy",},"order":0,},
+    {"id":{"name":"struct_match_value","path":"scripts/struct_match_value/struct_match_value.yy",},"order":3,},
     {"id":{"name":"UnitTest","path":"scripts/UnitTest/UnitTest.yy",},"order":0,},
     {"id":{"name":"percent","path":"scripts/percent/percent.yy",},"order":3,},
     {"id":{"name":"string_to_file","path":"scripts/string_to_file/string_to_file.yy",},"order":2,},
