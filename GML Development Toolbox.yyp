@@ -55,7 +55,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"File","folderPath":"folders/GML Development Toolbox/Script/File.yy","order":6,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Network","folderPath":"folders/GML Development Toolbox/Script/Network.yy","order":8,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Object","folderPath":"folders/GML Development Toolbox/Script/Object.yy","order":3,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Optimization","folderPath":"folders/GML Development Toolbox/Script/Optimization.yy","order":0,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Profiling","folderPath":"folders/GML Development Toolbox/Script/Profiling.yy","order":0,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Output","folderPath":"folders/GML Development Toolbox/Script/Output.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Resource","folderPath":"folders/GML Development Toolbox/Script/Resource.yy","order":7,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprite","folderPath":"folders/GML Development Toolbox/Script/Resource/Sprite.yy","order":1,},
