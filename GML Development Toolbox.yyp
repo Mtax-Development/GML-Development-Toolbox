@@ -24,6 +24,7 @@
     {"id":{"name":"approach","path":"scripts/approach/approach.yy",},"order":2,},
     {"id":{"name":"struct_for_each","path":"scripts/struct_for_each/struct_for_each.yy",},"order":0,},
     {"id":{"name":"out","path":"scripts/out/out.yy",},"order":1,},
+    {"id":{"name":"get","path":"scripts/get/get.yy",},"order":1,},
     {"id":{"name":"bbox_render","path":"scripts/bbox_render/bbox_render.yy",},"order":0,},
     {"id":{"name":"measure_execution_time","path":"scripts/measure_execution_time/measure_execution_time.yy",},"order":0,},
   ],
