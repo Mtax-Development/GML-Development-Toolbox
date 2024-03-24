@@ -9,16 +9,30 @@
 //  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function msg()
 {
-	var _callerName = ((is_struct(self)) ? instanceof(self)
-										 : ((id == 0) ? room_get_name(room)
-													  : object_get_name(object_index)));
+	var _callerName = undefined;
+	
+	try
+	{
+		if (is_struct(self))
+		{
+			var _instanceof_self = instanceof(self);
+			
+			_callerName = ((_instanceof_self == "<unknown>") ? room_get_name(room) : _instanceof_self);
+		}
+		else
+		{
+			_callerName = ((id == 0) ? room_get_name(room) : object_get_name(object_index));
+		}
+	}
+	catch (_) {}
+	
 	var _mark_start = ">> ";
 	var _mark_section = ": ";
 	var _mark_separator = ", ";
 	var _mark_timeSeparator = " - ";
 	var _mark_section_length = string_length(_mark_section);
 	var _string_time = date_time_string(date_current_datetime());
-	var _string = (_callerName + _mark_section);
+	var _string = ((_callerName != undefined) ? (_callerName + _mark_section) : "");
 	var _i = 0;
 	repeat (argument_count)
 	{
