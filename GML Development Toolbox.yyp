@@ -3,6 +3,7 @@
   "resourceVersion": "1.6",
   "name": "GML Development Toolbox",
   "resources": [
+    {"id":{"name":"macro","path":"scripts/macro/macro.yy",},"order":0,},
     {"id":{"name":"sprite_create_pixel","path":"scripts/sprite_create_pixel/sprite_create_pixel.yy",},"order":0,},
     {"id":{"name":"array","path":"scripts/array/array.yy",},"order":0,},
     {"id":{"name":"measure_execution_time__output","path":"notes/measure_execution_time__output/measure_execution_time__output.yy",},"order":0,},
@@ -60,6 +61,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Resource","folderPath":"folders/GML Development Toolbox/Script/Resource.yy","order":7,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprite","folderPath":"folders/GML Development Toolbox/Script/Resource/Sprite.yy","order":1,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Snippet","folderPath":"folders/GML Development Toolbox/Snippet.yy","order":3,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Global","folderPath":"folders/GML Development Toolbox/Script/Global.yy","order":10,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
