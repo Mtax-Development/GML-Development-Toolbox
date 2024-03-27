@@ -1,10 +1,10 @@
-//  @function				array_average()
+//  @function				average()
 /// @argument				array {real[]}
 /// @returns				{real|undefined}
-/// @description			Return the mean number of numeric values in the specified array. If the
-///							array contains no numbers, the result will be {undefined}.
+/// @description			Return the mean number of numeric values contained in the specified array
+///							or {undefined} if it contains no numeric values.
 //  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
-function array_average(_array)
+function average(_array)
 {
 	var _numericValueCount = 0;
 	var _sum = 0;

@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "array_average",
+  "name": "average",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Array",
-    "path": "folders/GML Development Toolbox/Script/Data Structure/Array.yy",
+    "name": "Computation",
+    "path": "folders/GML Development Toolbox/Script/Computation.yy",
   },
 }
