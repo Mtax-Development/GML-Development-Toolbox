@@ -17,7 +17,19 @@ function msg()
 		{
 			var _instanceof_self = instanceof(self);
 			
-			_callerName = ((_instanceof_self == "<unknown>") ? room_get_name(room) : _instanceof_self);
+			if (_instanceof_self == "<unknown>")
+			{
+				_callerName = room_get_name(room);
+			}
+			else
+			{
+				var _subsidiaryConstructorSeparatorPosition = string_last_pos("@", _instanceof_self);
+				
+				_callerName = ((_subsidiaryConstructorSeparatorPosition > 0)
+							   ? string_copy(_instanceof_self, 1,
+											 (_subsidiaryConstructorSeparatorPosition - 1))
+							   : _instanceof_self);
+			}
 		}
 		else
 		{
