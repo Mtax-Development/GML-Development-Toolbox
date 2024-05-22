@@ -9,18 +9,25 @@
 //  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function Constant(_numerator, _name, _value) constructor
 {
-	numerator = _numerator;
-	name = _name;
-	value = _value;
-	
-	/// @argument			full? {bool}
-	/// @description		Create a string representing this constructor.
-	///						Overrides the string() conversion.
-	///						Content will be represented with the name of the value.
-	static toString = function(_full = false)
-	{
-		var _name = string(name);
+	#region [Properties]
 		
-		return ((_full) ? (instanceof(self) + "(" + _name + ")") : _name);
-	}
+		numerator = _numerator;
+		name = _name;
+		value = _value;
+		
+	#endregion
+	#region [Method]
+		
+		/// @argument			full? {bool}
+		/// @description		Create a string representing this constructor.
+		///						Overrides the string() conversion.
+		///						Content will be represented with the name of the value.
+		static toString = function(_full = false)
+		{
+			var _name = string(name);
+			
+			return ((_full) ? (instanceof(self) + "(" + _name + ")") : _name);
+		}
+	
+	#endregion
 }
