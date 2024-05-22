@@ -12,6 +12,7 @@
     {"id":{"name":"sign_bool","path":"scripts/sign_bool/sign_bool.yy",},"order":3,},
     {"id":{"name":"callback_execute","path":"scripts/callback_execute/callback_execute.yy",},"order":0,},
     {"id":{"name":"msg","path":"scripts/msg/msg.yy",},"order":0,},
+    {"id":{"name":"Text","path":"scripts/Text/Text.yy",},"order":2,},
     {"id":{"name":"application_is_runner","path":"scripts/application_is_runner/application_is_runner.yy",},"order":0,},
     {"id":{"name":"struct_match_value","path":"scripts/struct_match_value/struct_match_value.yy",},"order":3,},
     {"id":{"name":"UnitTest","path":"scripts/UnitTest/UnitTest.yy",},"order":0,},
