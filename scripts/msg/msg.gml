@@ -1,5 +1,5 @@
 //  @function				msg()
-/// @argument				{any:string} value...
+/// @argument				value... {any:string}
 /// @returns				{string}
 /// @description			Write the specified values in a string to the standard console output and
 ///							display it in a message box handled by the export target.

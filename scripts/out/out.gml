@@ -1,5 +1,5 @@
 //  @function				out()
-/// @argument				{any:string} value...
+/// @argument				value... {any:string}
 /// @returns				{string}
 /// @description			Write the specified values in a string to the standard console output.
 ///							The string will be formatted to contain the information about its call.

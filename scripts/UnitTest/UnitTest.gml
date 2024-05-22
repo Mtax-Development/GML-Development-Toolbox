@@ -321,9 +321,9 @@ function UnitTest() constructor
 				++testID;
 			}
 			
-			/// @argument			{string} name
-			/// @argument			{any} functionReturn...
-			/// @argument			{any} expectedValue...
+			/// @argument			name {string}
+			/// @argument			functionReturn... {any}
+			/// @argument			expectedValue... {any}
 			/// @description		Add to this constructor information with the specified test name
 			///						about pairs of specified values returned by a function matching
 			///						their expected results and use it with the logging function.

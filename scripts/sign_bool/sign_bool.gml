@@ -1,5 +1,5 @@
 //  @function				sign_bool()
-/// @argument				{any:bool} value
+/// @argument				value {any:bool}
 /// @returns				{int:1|int:-1}
 /// @description			Return number one with a sign depending on boolean evaluation of the
 ///							specified value, positive for true and negative for false.
