@@ -1,7 +1,7 @@
 //  @function				file_find_included()
 /// @argument				{string:path} file?
 /// @argument				{string:path} directory?
-/// @returns				{string}
+/// @returns				{string[]}
 /// @description			Search for files in the same directory as the executeble of the application
 ///							or specified subsidiary directories to return their names in an array.
 ///							The operation is performed by specifying search masks, meaning that names
