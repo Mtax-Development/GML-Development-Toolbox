@@ -1,6 +1,7 @@
 //  @function				Text()
 /// @argument				string? {any:string}
 /// @description			Container used in storing a text string through a reference.
+//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function Text(_string = "") constructor
 {
 	#region [Property]
