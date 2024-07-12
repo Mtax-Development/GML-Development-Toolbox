@@ -22,11 +22,10 @@ function out()
 			}
 			else
 			{
-				var _subsidiaryConstructorSeparatorPosition = string_last_pos("@", _instanceof_self);
+				var _separatorPosition = string_last_pos("@", _instanceof_self);
 				
-				_callerName = ((_subsidiaryConstructorSeparatorPosition > 0)
-							   ? string_copy(_instanceof_self, 1,
-											 (_subsidiaryConstructorSeparatorPosition - 1))
+				_callerName = ((_separatorPosition > 0)
+							   ? string_copy(_instanceof_self, 1, (_separatorPosition - 1))
 							   : _instanceof_self);
 			}
 		}
