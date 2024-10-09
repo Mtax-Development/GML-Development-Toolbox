@@ -61,7 +61,12 @@ function msg()
 	}
 	
 	show_debug_message(_mark_start + _string_time + _mark_timeSeparator + _string);
-	show_message(_string);
+	
+	switch (os_type)
+	{
+		case os_windows: show_message(_string); break;
+		default: show_message_async(_string); break;
+	}
 	
 	return _string;
 }
