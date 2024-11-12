@@ -64,8 +64,12 @@ function msg()
 	
 	switch (os_type)
 	{
-		case os_windows: show_message(_string); break;
-		default: show_message_async(_string); break;
+		case os_windows:
+			show_message(_string);
+		break;
+		default:
+			show_message_async(_string);
+		break;
 	}
 	
 	return _string;
