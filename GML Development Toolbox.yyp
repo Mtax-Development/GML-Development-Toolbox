@@ -20,6 +20,7 @@
     {"id":{"name":"percent","path":"scripts/percent/percent.yy",},"order":3,},
     {"id":{"name":"string_to_file","path":"scripts/string_to_file/string_to_file.yy",},"order":2,},
     {"id":{"name":"Constant","path":"scripts/Constant/Constant.yy",},"order":1,},
+    {"id":{"name":"struct_to_array","path":"scripts/struct_to_array/struct_to_array.yy",},"order":4,},
     {"id":{"name":"json_to_struct","path":"scripts/json_to_struct/json_to_struct.yy",},"order":0,},
     {"id":{"name":"is_ipv4_address","path":"scripts/is_ipv4_address/is_ipv4_address.yy",},"order":0,},
     {"id":{"name":"struct_reach","path":"scripts/struct_reach/struct_reach.yy",},"order":2,},
