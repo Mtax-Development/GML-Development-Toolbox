@@ -6,5 +6,5 @@
 //  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function sign_bool(_value)
 {
-	return ((_value) ? 1 : -1);
+	return (bool(_value) ? 1 : (-1));
 }
