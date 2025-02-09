@@ -9,10 +9,10 @@
 ///							structs after themselves, unless they are constructors.
 //							The following arguments will be provided to the function and can be
 //							accessed in it by using their name or the argument array:
-//							- argument[0]: {int|int[]} _i
-//							- argument[1]: {any} _value
-//							- argument[2]: {string|string[]} _name
-//							- argument[3]: {any} _argument
+//							- argument[0]: _i {int|int[]}
+//							- argument[1]: _value {any}
+//							- argument[2]: _name {string|string[]}
+//							- argument[3]: _argument {any}
 //							Iterator and name arguments are provided as arrays during recursion to
 //							include information about upper levels of current nested execution.
 //  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
