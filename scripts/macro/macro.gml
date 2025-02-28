@@ -4,7 +4,7 @@
 ///						NOTE: Variable name "___ROOT" is reserved in this scope.
 /// @example			var _data = struct {a = 5; b = (a - 1); c = a++;};
 //  @author				Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
-#macro struct global.registerStruct({}); var ___ROOT = ((instanceof(self) = "struct" ? ___ROOT : self)); with (___ROOT) with (global.registerStruct())
+#macro struct global.registerStruct({}); var ___ROOT = ((instanceof(self) = "struct" ? ___ROOT : self)); with (global.registerStruct())
 #macro root ___ROOT
 
 global.registerStruct = function(_struct)
