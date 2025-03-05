@@ -11,6 +11,7 @@
     {"id":{"name":"struct_merge","path":"scripts/struct_merge/struct_merge.yy",},"order":1,},
     {"id":{"name":"sign_bool","path":"scripts/sign_bool/sign_bool.yy",},"order":3,},
     {"id":{"name":"file_find_included","path":"scripts/file_find_included/file_find_included.yy",},"order":3,},
+    {"id":{"name":"null","path":"scripts/null/null.yy",},"order":2,},
     {"id":{"name":"msg","path":"scripts/msg/msg.yy",},"order":0,},
     {"id":{"name":"Text","path":"scripts/Text/Text.yy",},"order":2,},
     {"id":{"name":"application_is_runner","path":"scripts/application_is_runner/application_is_runner.yy",},"order":0,},
