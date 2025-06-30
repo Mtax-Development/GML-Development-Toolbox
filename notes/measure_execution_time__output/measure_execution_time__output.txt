@@ -5,6 +5,11 @@ show_debug_message
 		function()
 		{
 			
+		},
+		
+		function()
+		{
+			
 		}
 	)
 );
