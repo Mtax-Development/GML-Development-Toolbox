@@ -5,7 +5,7 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Profiling",
-    "path": "folders/GML Development Toolbox/Script/Profiling.yy",
+    "name": "Debug",
+    "path": "folders/GML Development Toolbox/Script/Debug.yy",
   },
 }

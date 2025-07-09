@@ -5,7 +5,7 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Output",
-    "path": "folders/GML Development Toolbox/Script/Output.yy",
+    "name": "Debug",
+    "path": "folders/GML Development Toolbox/Script/Debug.yy",
   },
 }

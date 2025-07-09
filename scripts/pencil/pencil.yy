@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "msg",
+  "name": "pencil",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
