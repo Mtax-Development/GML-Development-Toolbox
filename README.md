@@ -1,4 +1,4 @@
-**GML Development Toolbox** is a collection of independent scripts assisting the development process of applications using GameMaker Language. These scripts are intended to be compatible with the first LTS version of GameMaker, but should be useable in later versions as well.
+**GML Development Toolbox** is a collection of independent scripts assisting the development process of applications using GameMaker Language. Most of these scripts are intended to be compatible with the first LTS version of GameMaker, but as this project is transitioning towards next upcoming LTS release, some functions will rely on features from monthly releases of GameMaker.
 
 # Initialization
 Individual scripts files can be used in after including raw version of them in a GameMaker project straight from this repository. GameMaker can also package multiple assets into single files that are importable into other projects by performing the following:
