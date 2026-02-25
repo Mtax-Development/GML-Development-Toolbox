@@ -6,6 +6,7 @@
     {"id":{"name":"macro","path":"scripts/macro/macro.yy",},"order":0,},
     {"id":{"name":"sprite_create_pixel","path":"scripts/sprite_create_pixel/sprite_create_pixel.yy",},"order":0,},
     {"id":{"name":"array","path":"scripts/array/array.yy",},"order":0,},
+    {"id":{"name":"array_clear","path":"scripts/array/array_clear.yy",},"order":1,},
     {"id":{"name":"measure_execution_time__output","path":"notes/measure_execution_time__output/measure_execution_time__output.yy",},"order":0,},
     {"id":{"name":"file_to_string","path":"scripts/file_to_string/file_to_string.yy",},"order":1,},
     {"id":{"name":"struct_merge","path":"scripts/struct_merge/struct_merge.yy",},"order":1,},
