@@ -31,7 +31,8 @@ function is_ipv4_address(_string)
 		var _position_segment_start = (_position_separator + 1);
 		var _position_separator_next = ((_i == _separator_count)
 										? (string_length(_string) + 1)
-										: string_pos_ext(_separator, _string, _position_separator));
+										: string_pos_ext(_separator, _string,
+														 (_position_separator + 1)));
 		var _segment_length = (_position_separator_next - _position_segment_start);
 		
 		if (_segment_length != clamp(_segment_length, 1, 3))
