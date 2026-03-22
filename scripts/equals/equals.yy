@@ -6,6 +6,6 @@
   "isCompatibility": false,
   "parent": {
     "name": "General",
-    "path": "folders/GML Development Toolbox/Script/Data Structure/General.yy",
+    "path": "folders/GML Development Toolbox/Script/Data/General.yy",
   },
 }

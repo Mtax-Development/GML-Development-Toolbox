@@ -6,6 +6,6 @@
   "isCompatibility": false,
   "parent": {
     "name": "Struct",
-    "path": "folders/GML Development Toolbox/Script/Data Structure/Struct.yy",
+    "path": "folders/GML Development Toolbox/Script/Data/Struct.yy",
   },
 }

@@ -6,6 +6,6 @@
   "isCompatibility": false,
   "parent": {
     "name": "Array",
-    "path": "folders/GML Development Toolbox/Script/Data Structure/Array.yy",
+    "path": "folders/GML Development Toolbox/Script/Data/Array.yy",
   },
 }
