@@ -20,10 +20,18 @@ function ipv4_address_port(_address)
 		if (_separator_position > 0)
 		{
 			var _IP = string_copy(_address, 1, (_separator_position - 1));
-			_port = real(string_copy(_address, (_separator_position + 1),
-									(string_length(_address) - _separator_position + 1)));
+			var _string_port = string_copy(_address, (_separator_position + 1),
+										   (string_length(_address) - _separator_position + 1));
 			
-			_result = [_IP, _port];
+			if (_string_port == string_digits(_string_port))
+			{
+				_port = real(_string_port);
+				_result = [_IP, _port];
+			}
+			else
+			{
+				_result = _IP;
+			}
 		}
 	}
 	
