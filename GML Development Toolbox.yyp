@@ -3,7 +3,7 @@
   "resourceVersion": "1.6",
   "name": "GML Development Toolbox",
   "resources": [
-    {"id":{"name":"macro_struct","path":"scripts/macro_struct/macro_struct.yy",},"order":0,},
+    {"id":{"name":"macro_struct","path":"scripts/macro_struct/macro_struct.yy",},"order":1,},
     {"id":{"name":"sprite_create_pixel","path":"scripts/sprite_create_pixel/sprite_create_pixel.yy",},"order":0,},
     {"id":{"name":"array","path":"scripts/array/array.yy",},"order":0,},
     {"id":{"name":"measure_execution_time__output","path":"notes/measure_execution_time__output/measure_execution_time__output.yy",},"order":0,},
@@ -19,6 +19,7 @@
     {"id":{"name":"application_is_runner","path":"scripts/application_is_runner/application_is_runner.yy",},"order":0,},
     {"id":{"name":"struct_match_value","path":"scripts/struct_match_value/struct_match_value.yy",},"order":3,},
     {"id":{"name":"UnitTest","path":"scripts/UnitTest/UnitTest.yy",},"order":0,},
+    {"id":{"name":"macro_profiler","path":"scripts/macro_profiler/macro_profiler.yy",},"order":0,},
     {"id":{"name":"equals","path":"scripts/equals/equals.yy",},"order":0,},
     {"id":{"name":"percent","path":"scripts/percent/percent.yy",},"order":3,},
     {"id":{"name":"ipv4_address_port","path":"scripts/ipv4_address_port/ipv4_address_port.yy",},"order":1,},
