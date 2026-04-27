@@ -3,7 +3,7 @@
   "resourceVersion": "1.6",
   "name": "GML Development Toolbox",
   "resources": [
-    {"id":{"name":"macro","path":"scripts/macro/macro.yy",},"order":0,},
+    {"id":{"name":"macro_struct","path":"scripts/macro_struct/macro_struct.yy",},"order":0,},
     {"id":{"name":"sprite_create_pixel","path":"scripts/sprite_create_pixel/sprite_create_pixel.yy",},"order":0,},
     {"id":{"name":"array","path":"scripts/array/array.yy",},"order":0,},
     {"id":{"name":"measure_execution_time__output","path":"notes/measure_execution_time__output/measure_execution_time__output.yy",},"order":0,},

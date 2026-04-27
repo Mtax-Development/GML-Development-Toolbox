@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "macro",
+  "name": "macro_struct",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
