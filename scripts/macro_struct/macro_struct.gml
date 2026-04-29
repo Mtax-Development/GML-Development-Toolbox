@@ -16,6 +16,7 @@
 //						
 //						Occupied namespace for internal use only by the code of this macro:
 //						 - ___ROOT: Only in the local scope of the "struct" keyword.
+//						 - ___SELF_IS_STRUCT: Only in the local scope of the "struct" keyword.
 //						 - global.registerStruct: Global scope only.
 //						 - global.parentRoot: Global scope only.
 //						 - macro_struct: This script asset name.
@@ -38,8 +39,13 @@
 	#macro struct																					  \
 		global.registerStruct({});																	  \
 																									  \
-		var ___ROOT = ((instanceof(self) = "struct" ? ___ROOT : self));								  \
-		global.parentRoot = ___ROOT;																  \
+		var ___SELF_IS_STRUCT = (instanceof(self) = "struct");										  \
+		var ___ROOT = ((___SELF_IS_STRUCT) ? ___ROOT : self);										  \
+																									  \
+		if ((!___SELF_IS_STRUCT) and (instanceof(other) != "struct"))								  \
+		{																							  \
+			global.parentRoot = ___ROOT;															  \
+		}																							  \
 																									  \
 		with (___ROOT) with (global.registerStruct())
 		
