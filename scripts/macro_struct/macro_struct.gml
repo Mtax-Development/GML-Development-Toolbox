@@ -51,7 +51,7 @@
 		
 	#macro root ___ROOT
 	
-	#macro parent_root global.parentRoot;
+	#macro parent_root global.parentRoot
 	
 #endregion
 #region [Internal code]
