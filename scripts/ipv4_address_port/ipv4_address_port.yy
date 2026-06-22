@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "ipv4_address_port",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Network",
-    "path": "folders/GML Development Toolbox/Script/Network.yy",
+  "$GMScript":"v1",
+  "%Name":"ipv4_address_port",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ipv4_address_port",
+  "parent":{
+    "name":"Network",
+    "path":"folders/GML Development Toolbox/Script/Network.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

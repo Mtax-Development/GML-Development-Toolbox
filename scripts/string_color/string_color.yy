@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "string_color",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "String",
-    "path": "folders/GML Development Toolbox/Script/Data/String.yy",
+  "$GMScript":"v1",
+  "%Name":"string_color",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"string_color",
+  "parent":{
+    "name":"String",
+    "path":"folders/GML Development Toolbox/Script/Data/String.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

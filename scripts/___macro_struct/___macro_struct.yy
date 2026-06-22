@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"out",
+  "%Name":"___macro_struct",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"out",
+  "name":"___macro_struct",
   "parent":{
-    "name":"Debug",
-    "path":"folders/GML Development Toolbox/Script/Debug.yy",
+    "name":"Global",
+    "path":"folders/GML Development Toolbox/Script/Global.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

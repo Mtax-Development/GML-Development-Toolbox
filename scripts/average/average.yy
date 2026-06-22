@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "average",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Computation",
-    "path": "folders/GML Development Toolbox/Script/Computation.yy",
+  "$GMScript":"v1",
+  "%Name":"average",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"average",
+  "parent":{
+    "name":"Computation",
+    "path":"folders/GML Development Toolbox/Script/Computation.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

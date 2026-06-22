@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "get",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Callback",
-    "path": "folders/GML Development Toolbox/Script/Callback.yy",
+  "$GMScript":"v1",
+  "%Name":"get",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"get",
+  "parent":{
+    "name":"Callback",
+    "path":"folders/GML Development Toolbox/Script/Callback.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }
