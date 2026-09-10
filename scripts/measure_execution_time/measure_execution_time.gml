@@ -1,12 +1,12 @@
-//  @function				measure_execution_time()
-/// @argument				function... {function}
-/// @returns				{real|real[]|undefined}
-/// @description			Test the average execution time of specified functions and return the
-///							result as a number, an array of them if multiple functions were specified
-///							or {undefined} if none. The time is measured in microseconds and saved in
-///							a static variable to be later included in calculations, meaning the results
-///							increase in accuracy as this function is being called repeatedly.
-//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
+//  @function			measure_execution_time()
+/// @argument			function... {function}
+/// @returns			{real|real[]}
+/// @description		Test the average execution time of specified functions and return the result
+///						as either a number for a single function or an array of them otherwise. That
+///						time is measured in microseconds and saved in a static variable to be later
+///						included in calculations as average, so the results increase in accuracy after
+///						repeated calls.
+//  @author				Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function measure_execution_time()
 {
 	static _executionTime = [];
@@ -88,18 +88,5 @@ function measure_execution_time()
 		++_i[0];
 	}
 	
-	switch (argument_count)
-	{
-		case 0:
-			return undefined;
-		break;
-		
-		case 1:
-			return _averageTime[0];
-		break;
-		
-		default:
-			return _averageTime;
-		break;
-	}
+	return ((argument_count == 1) ? _averageTime[0] : _averageTime);
 }

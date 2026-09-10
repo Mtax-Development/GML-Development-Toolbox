@@ -1,10 +1,10 @@
-//  @function				array()
-/// @argument				value... {any|any[]}
-/// @returns				{any[]}
-/// @description			Create an array containing specified values or all values of specified
-///							arrays. If the only specified value is an array, its separate copy will be
-///							returned. If no values are provided, an empty array will be returned.
-//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
+//  @function			array()
+/// @argument			value... {any|any[]}
+/// @returns			{any[]}
+/// @description		Create an array containing specified values or all values of specified arrays.
+///						If the only specified value is an array, its separate copy will be returned.
+///						If no values are provided, an empty array will be returned.
+//  @author				Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function array()
 {
 	if (argument_count == 1)

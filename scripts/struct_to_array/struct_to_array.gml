@@ -1,11 +1,11 @@
-//  @function				struct_to_array()
-/// @argument				struct... {struct}
-/// @argument				sort? {function}
-/// @returns				{any[]}
-/// @description			Return an array containing values of one or multiple specified structs and
-///							their nested structs. That array can be sorted using a sorting function if
-///							it is specfied as the last argument.
-//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
+//  @function			struct_to_array()
+/// @argument			struct... {struct}
+/// @argument			sort? {function}
+/// @returns			{any[]}
+/// @description		Return an array containing values of one or multiple specified structs and
+///						their nested structs. That array can be processed by a sorting function if it
+///						is specfied as the last argument.
+//  @author				Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function struct_to_array()
 {
 	var _result = [];

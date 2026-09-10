@@ -1,14 +1,14 @@
-//  @function				string_color()
-/// @argument				color? {int:color}
-/// @argument				useHSV? {bool}
-/// @returns				{string}
-/// @description			Return the string representation of the specified color value. If it
-///							equals one of the built-in color constants, its name will be returned,
-///							except for the Silver constant, as it refers the same color as Light Gray.
-///							Otherwise, the values measuring its red, green and blue components will be
-///							used, unless specified to instead represent it with hue, saturation and
-///							value components.
-//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
+//  @function			string_color()
+/// @argument			color? {int:color}
+/// @argument			useHSV? {bool}
+/// @returns			{string}
+/// @description		Return the string representation of the specified color value. If it equals to
+///						one of the built-in color constants, its name will be returned, except for the
+///						Silver constant, as it refers the same value as the Light Gray constant.
+///						Otherwise, values measuring its red, green and blue color components will be
+///						used, unless specified to instead represent it with hue, saturation and color
+///						components.
+//  @author				Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function string_color(_color, _useHSV = false)
 {
 	var _string = "";

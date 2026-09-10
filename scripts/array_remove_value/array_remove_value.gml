@@ -1,10 +1,10 @@
-//  @function				array_remove_value()
-/// @argument				array {any[]}
-/// @argument				value {any}
-/// @returns				{any[]}
-/// @description			Remove all entries of the specified value from the specified array and
-///							return that array.
-//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
+//  @function			array_remove_value()
+/// @argument			array {any[]}
+/// @argument			value {any}
+/// @returns			{any[]}
+/// @description		Remove all entries of the specified value from the specified array and return
+///						that array.
+//  @author				Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function array_remove_value(_array, _value)
 {
 	var _i = 0;

@@ -1,8 +1,8 @@
-//  @function				is_ipv4_address()
-/// @argument				string {string}
-/// @returns				{bool}
-/// @description			Check if the specified string is an Internet Protocol version 4 address.
-//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
+//  @function			is_ipv4_address()
+/// @argument			string {string}
+/// @returns			{bool}
+/// @description		Check if the specified string is an Internet Protocol version 4 address.
+//  @author				Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function is_ipv4_address(_string)
 {
 	if (!is_string(_string))

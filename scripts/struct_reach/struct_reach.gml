@@ -1,10 +1,11 @@
-//  @function				struct_reach()
-/// @argument				struct {struct}
-/// @argument				name {string|string[]}
-/// @returns				{any|undefined}
-/// @description			Return the value at the end of the specified name chain of nested structs
-///							in the specified struct or {undefined} if it does not contain such chain.
-//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
+//  @function			struct_reach()
+/// @argument			struct {struct}
+/// @argument			name {string|string[]}
+/// @returns			{any|undefined}
+/// @description		Return either the value at the end of chain of structs with names specified
+///						respectively in an array, which are are nested in the specified initial struct
+///						or {undefined} if it does not contain such chain of names.
+//  @author				Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function struct_reach(_struct, _name)
 {
 	var _value = _struct;

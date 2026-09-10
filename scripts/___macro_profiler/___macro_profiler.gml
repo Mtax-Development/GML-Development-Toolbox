@@ -1,12 +1,12 @@
-/// @description		Operate execution time profiler to output into the console the average time
+/// @description		Operate execution time profiler to output, into the console, the average time
 ///						across multiple executions of the same code, by placing the beginning keyword
-///						of this macro before measured code and ending code after it. This macro
+///						of this macro before measured code and ending keyword after it. This macro
 ///						obtains the execution timer with the least possible time spent on calling the
-///						timer function itself itself to ensure accurate results. Each keyword of this
-///						macro should be present in code only once per application execution to not
-///						combine resulting timings.
+///						timer function itself itself to ensure accurate results. Each keyword should
+///						should be present in code only once per application execution, so resulting
+///						resulting timings are not combined.
 //
-//						Registered keywords through which this macro is to be used:
+//						Registered keywords, through which this macro is to be used:
 //						 - profiler_begin: Useable by itself anywhere local variables can be declared.
 //						 - profiler_end: Useable in the same local scope "profiler_begin" keyword was
 //										 previously used.

@@ -1,15 +1,15 @@
-/// @description		Create an empty struct and switch scope to it by assigning this macro to a
-///						variable declaration. Doing so it possible to declare its properties and
+/// @description		Create an empty struct and switch the scope to it by assigning this macro to a
+///						variable declaration, so that it is possible to declare its properties and
 ///						reference them immediately after.
 ///						This declaration can be nested within itself, in which case, the {other} scope
 ///						is preserved to refer to the owner of the first, unnested variable.
 //						
-//						Registered keywords through which this macro is to be used:
+//						Registered keywords, through which this macro is to be used:
 //						 - struct: Useable as a variable assignment while the scope can be changed.
 //						 - root: Useable within a struct declared by the "struct" keyword.
 //								 References the owner of the first unnested "struct" keyword
 //								 declaration variable through a local variable.
-//						 - parent_root: Useable within code of a constructor that was constructed
+//						 - parent_root: Useable within code of a constructor which was constructed
 //										within the scope of a "struct" keyword.
 //										References previous value of the "root" keyword through a
 //										global variable.

@@ -1,8 +1,8 @@
-//  @function				json_to_struct()
-/// @argument				path {string:path}
-/// @returns				{struct} | On error: {undefined}
-/// @description			Load the specified JSON file and return it as a struct.
-//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
+//  @function			json_to_struct()
+/// @argument			path {string:path}
+/// @returns			{struct} | On error: {undefined}
+/// @description		Load the specified JSON file and return it as a struct.
+//  @author				Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function json_to_struct(_path)
 {
 	if ((is_string(_path)) and (file_exists(_path)))
@@ -34,7 +34,7 @@ function json_to_struct(_path)
 	
 	var _callstack_raw = debug_get_callstack();
 	var _callstack = [];
-	array_copy(_callstack, 0, _callstack_raw, 1, (array_length(_callstack_raw) - 2)); 
+	array_copy(_callstack, 0, _callstack_raw, 1, (array_length(_callstack_raw) - 2));
 	var _tabulation = string_repeat(" ", 4);
 	var _callstack_formatted = "";
 	var _i = 0;

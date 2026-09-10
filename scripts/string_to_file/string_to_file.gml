@@ -1,11 +1,11 @@
-//  @function				string_to_file()
-/// @argument				path {string:path}
-/// @argument				string {string}
-/// @returns				{bool}
-/// @description			Save the specified string to a file at the specified path and return
-///							whether this operation was a success. The file will be created if it does
-///							not exists, otherwise its contents will be overwritten.
-//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
+//  @function			string_to_file()
+/// @argument			path {string:path}
+/// @argument			string {string}
+/// @returns			{bool}
+/// @description		Save the specified string to a file at the specified path and return whether
+///						this operation was a success. If the file already exists, its contents will be
+///						overwritten, otherwise it will be created.
+//  @author				Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function string_to_file(_path, _string)
 {
 	if (is_string(_path))
@@ -42,7 +42,7 @@ function string_to_file(_path, _string)
 	
 	var _callstack_raw = debug_get_callstack();
 	var _callstack = [];
-	array_copy(_callstack, 0, _callstack_raw, 1, (array_length(_callstack_raw) - 2)); 
+	array_copy(_callstack, 0, _callstack_raw, 1, (array_length(_callstack_raw) - 2));
 	var _tabulation = string_repeat(" ", 4);
 	var _callstack_formatted = "";
 	var _i = 0;

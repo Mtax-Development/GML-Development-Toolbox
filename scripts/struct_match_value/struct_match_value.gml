@@ -1,12 +1,12 @@
-//  @function				struct_match_value()
-/// @argument				struct {struct[]}
-/// @argument				name {string|string[]}
-/// @argument				value {any}
-/// @returns				{struct|undefined}
-/// @description			Iterate through the specified array of structs to match the specified value
-///							under specified property name chain and return the first struct containing
-///							that value in that property.
-//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
+//  @function			struct_match_value()
+/// @argument			struct {struct[]}
+/// @argument			name {string|string[]}
+/// @argument			value {any}
+/// @returns			{struct|undefined}
+/// @description		Iterate through the specified array of structs to match the specified value
+///						under specified property name chain and return the first struct containing
+///						that value in that property.
+//  @author				Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function struct_match_value(_struct, _name, _value)
 {
 	var _name_chain = ((is_array(_name)) ? _name : [_name]);

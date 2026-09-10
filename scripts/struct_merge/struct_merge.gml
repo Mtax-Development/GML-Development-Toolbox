@@ -1,11 +1,11 @@
-//  @function				struct_merge()
-/// @argument				target {struct}
-/// @argument				source... {struct}
-/// @returns				{struct}
-/// @description			Modify the specified target struct to add the properties of the specified
-///							source structs. Values of existing properties will be overwritten in the
-///							same order as structs have been specified.
-//  @author					Mtax (github.com/Mtax-Development)
+//  @function			struct_merge()
+/// @argument			target {struct}
+/// @argument			source... {struct}
+/// @returns			{struct}
+/// @description		Modify the specified target struct to add the properties of the specified
+///						source structs. Values of existing properties will be overwritten respectively
+///						to the order in which structs have been specified.
+//  @author				Mtax (github.com/Mtax-Development)
 function struct_merge(_target)
 {
 	var _i = [1, 0];

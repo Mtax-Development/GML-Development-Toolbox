@@ -1,8 +1,8 @@
-//  @function				file_to_string()
-/// @argument				path {string:path}
-/// @returns				{string}
-/// @description			Load the specified text file and return it as a string.
-//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
+//  @function			file_to_string()
+/// @argument			path {string:path}
+/// @returns			{string}
+/// @description		Load the specified text file and return it as a string.
+//  @author				Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function file_to_string(_path)
 {
 	var _result = "";

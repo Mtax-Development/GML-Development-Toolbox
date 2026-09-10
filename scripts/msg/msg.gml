@@ -1,12 +1,12 @@
-//  @function				msg()
-/// @argument				value... {any:string}
-/// @returns				{string}
-/// @description			Write the specified values in a string to the standard console output and
-///							display it in a message box handled by the export target.
-///							The string will be formatted to contain the information about its call.
-///							Specified values will be stringified and separated by a comma, except for
-///							string values ending with a colon and space.
-//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
+//  @function			msg()
+/// @argument			value... {any:string}
+/// @returns			{string}
+/// @description		Write the specified values in a string to the standard console output and
+///						display it in a message box handled by the export target.
+///						The string will be formatted to contain the information about its call.
+///						Specified values will be stringified, then separated by a comma, unless ending
+///						with a colon and a space.
+//  @author				Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function msg()
 {
 	var _callerName = undefined;

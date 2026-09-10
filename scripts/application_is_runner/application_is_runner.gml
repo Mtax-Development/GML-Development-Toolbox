@@ -1,8 +1,8 @@
-//  @function				application_is_runner()
-/// @returns				{bool|undefined}
-/// @description			Check if the application is currently ran on the Windows operating system
-///							from runner of the GameMaker IDE and is not a built standalone executable.
-//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
+//  @function			application_is_runner()
+/// @returns			{bool|undefined}
+/// @description		Check if the application is currently ran on the Windows operating system from
+///						runner of the GameMaker IDE and is not a built standalone executable.
+//  @author				Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function application_is_runner()
 {
 	if (os_type != os_windows)

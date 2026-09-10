@@ -1,13 +1,12 @@
-//  @function				pencil()
-/// @argument				color {int:color}
-/// @description			Operate freehand drawing of debug lines with single pixel width and the
-///							specified color, then render them to current Surface, based on following
-///							cursor input:
-///							- Left cursor button: Press and release to create a single point, hold and
-///												  move the cursor to create a line.
-///							- Middle cursor button: Input twice in quick succession to clear rendering
-///													information.
-//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
+//  @function			pencil()
+/// @argument			color? {int:color}
+/// @description		Operate freehand drawing of debug lines with the specified color and a size of
+///						a single pixel, then render them to current Surface, based on cursor input:
+///						- Left cursor button: Press and release to create a single point, hold and
+///											  move the cursor to create a line.
+///						- Middle cursor button: Input twice in quick succession to clear rendering
+///												information.
+//  @author				Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function pencil(_color = c_white)
 {
 	static _point = [];

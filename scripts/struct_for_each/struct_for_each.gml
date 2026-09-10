@@ -1,21 +1,21 @@
-//  @function				struct_for_each()
-/// @argument				struct {struct}
-/// @argument				callback {function}
-/// @argument				argument? {any[]}
-/// @argument				recursive? {bool}
-/// @returns				{any[]}
-/// @description			Execute a function once for each property of the specified struct.
-///							The execution can be specified as recursive to execute on content of nested
-///							structs after themselves, unless they are constructors.
-//							The following arguments will be provided to the function and can be
-//							accessed in it by using their name or the argument array:
-//							- argument[0]: _i {int|int[]}
-//							- argument[1]: _value {any}
-//							- argument[2]: _name {string|string[]}
-//							- argument[3]: _argument {any}
-//							Iterator and name arguments are provided as arrays during recursion to
-//							include information about upper levels of current nested execution.
-//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
+//  @function			struct_for_each()
+/// @argument			struct {struct}
+/// @argument			callback {function}
+/// @argument			argument? {any[]}
+/// @argument			recursive? {bool}
+/// @returns			{any[]}
+/// @description		Execute a function once for each property of the specified struct.
+///						The execution can be specified as recursive to execute on content of nested
+///						structs after the structs that containg them, unless they are constructors.
+//						Following arguments will be provided to the function and can be accessed in it
+//						 by using their name or the argument array:
+//						- argument[0]: _i {int|int[]}
+//						- argument[1]: _value {any}
+//						- argument[2]: _name {string|string[]}
+//						- argument[3]: _argument {any}
+//						Iterator and name arguments are provided as arrays during recursion to include
+//						information about upper levels of current nested execution.
+//  @author				Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function struct_for_each(_struct, __callback, _argument, _recursive = false)
 {
 	var _result = [];

@@ -1,10 +1,10 @@
-//  @function				equals()
-/// @argument				{any} first...
-/// @argument				{any} second...
-/// @returns				{bool}
-/// @description			Check if all pairs of specified values are equivalent. If both values are
-///							an array or a struct, their content is compared through recursion.
-//  @author					Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
+//  @function			equals()
+/// @argument			{any} first...
+/// @argument			{any} second...
+/// @returns			{bool}
+/// @description		Check if all pairs of specified values are equivalent. If both values are an
+///						array or a struct, their content is compared through recursion.
+//  @author				Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function equals()
 {
 	var __recursion = function(__recursion, _first, _second)
