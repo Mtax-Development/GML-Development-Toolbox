@@ -5,21 +5,16 @@
 //  @author				Mtax (github.com/Mtax-Development/GML-Development-Toolbox)
 function UnitTest(_name) constructor
 {
-  #region [Static Properties]
-   #region <Configurable Properties>
+  #region [Properties]
 	
-	// @type			{function|undefined}
-	// @description		Function used for displaying the asserted values.
+	// @type				{function|undefined}
+	// @description			Configurable function used for displaying the asserted values.
 	static logAssertion = show_debug_message;
 	
-   #endregion
-   #region <Operational Properties>
-	
-	// @type			{bool}
-	// @description		Value set and kept true only if any of the test had failures.
+	// @type				{bool}
+	// @description			Operational value set and kept true only if any of the test had failures.
 	static failuresExist = false;
 	
-   #endregion
   #endregion
   #region [Methods]
    #region <Management>

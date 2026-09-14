@@ -6,6 +6,7 @@
 function Text(_string = "") constructor
 {
   #region [Methods]
+   #region <Setters>
 	
 	/// @argument			value? {any:string}
 	/// @description		Set the value of this constructor to either the specified stringified
@@ -17,6 +18,9 @@ function Text(_string = "") constructor
 		return self;
 	}
 	
+   #endregion
+   #region <Conversion>
+	
 	/// @returns			{string}
 	/// @description		Return the value of this constructor.
 	///						Overrides the string() conversion.
@@ -25,6 +29,7 @@ function Text(_string = "") constructor
 		return ID;
 	}
 	
+   #endregion
   #endregion
   #region [Constructor]
 	
