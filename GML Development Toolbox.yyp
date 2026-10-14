@@ -13,7 +13,6 @@
     {"$GMFolder":"","%Name":"GML Development Toolbox","folderPath":"folders/GML Development Toolbox.yy","name":"GML Development Toolbox","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Constructor","folderPath":"folders/GML Development Toolbox/Constructor.yy","name":"Constructor","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Script","folderPath":"folders/GML Development Toolbox/Script.yy","name":"Script","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Application","folderPath":"folders/GML Development Toolbox/Script/Application.yy","name":"Application","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Callback","folderPath":"folders/GML Development Toolbox/Script/Callback.yy","name":"Callback","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Computation","folderPath":"folders/GML Development Toolbox/Script/Computation.yy","name":"Computation","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Data","folderPath":"folders/GML Development Toolbox/Script/Data.yy","name":"Data","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -37,7 +36,6 @@
   "resources":[
     {"id":{"name":"___macro_profiler","path":"scripts/___macro_profiler/___macro_profiler.yy",},},
     {"id":{"name":"___macro_struct","path":"scripts/___macro_struct/___macro_struct.yy",},},
-    {"id":{"name":"application_is_runner","path":"scripts/application_is_runner/application_is_runner.yy",},},
     {"id":{"name":"approach","path":"scripts/approach/approach.yy",},},
     {"id":{"name":"array_clear","path":"scripts/array_clear/array_clear.yy",},},
     {"id":{"name":"array_remove_value","path":"scripts/array_remove_value/array_remove_value.yy",},},
